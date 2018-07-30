@@ -56,6 +56,7 @@ $ node hello.js
 
 ```
 $ curl 'localhost:3000'
+
 Hello world from a Node.js app!
 ```
 
