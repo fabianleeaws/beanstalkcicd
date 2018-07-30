@@ -40,6 +40,25 @@ app.listen(3000, () => {
 })
 ```
 
+#### 1.3 Test sample Node REST API
+
+1.  Run this command to host the REST API
+
+```
+$ node hello.js
+```
+
+2.  Open a new terminal
+
+(./imgs/01/01.png)
+
+3.  Run the curl command to test API
+
+```
+$ curl 'localhost:3000'
+Hello world from a Node.js app!
+```
+
 # test user
 
 curl 'localhost:8080/workshop/users/all'
