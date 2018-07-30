@@ -41,7 +41,7 @@ $ which node
 ~/.nvm/versions/node/v10.7.0/bin/node
 ```
 
-2.  Initialise Node project packages
+2.  Initialise Node project packages, accept all defaults by hitting **enter** 10 times
 
 ```
 $ npm init
