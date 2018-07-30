@@ -54,7 +54,7 @@ Select a default region
 
 ```
 Enter Application Name
-(default is "environment"): simple-node
+(default is "environment"): sample-node
 ```
 
 4.  Enter **Y** to confirm Node.js usage
@@ -69,7 +69,15 @@ It appears you are using Node.js. Is this correct?
 ```
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
 Do you want to set up SSH for your instances?
-(Y/n): Y
+(Y/n): n
+```
+
+#### 1.3 Create EB environment
+
+1.  Run eb create command to create an EB environment
+
+```
+
 ```
 
 1.  Create a cluster
@@ -253,30 +261,30 @@ Create an ECS cluster with these resources:
 cd templates
 
 aws cloudformation deploy \
-  --stack-name aws-infra-ecscli \
-  --template-file infra.yaml \
-  --region ap-southeast-1 \
-  --capabilities CAPABILITY_IAM
+ --stack-name aws-infra-ecscli \
+ --template-file infra.yaml \
+ --region ap-southeast-1 \
+ --capabilities CAPABILITY_IAM
 ```
 
 ```
 aws cloudformation deploy \
-  --stack-name aws-ecs-ec2 \
-  --template-file master.yaml \
-  --region ap-southeast-1 \
-  --capabilities CAPABILITY_IAM
+ --stack-name aws-ecs-ec2 \
+ --template-file master.yaml \
+ --region ap-southeast-1 \
+ --capabilities CAPABILITY_IAM
 ```
 
 2.  Run the follow command to capture the output from the CloudFormation template as key/value pairs in the file ecs-cluster.props.
 
 ```
 aws cloudformation describe-stacks \
-  --region ap-southeast-1 \
-  --stack-name aws-infra-ecscli \
-  --query 'Stacks[0].Outputs' \
-  --output=text | \
-  perl -lpe 's/\s+/=/g' | \
-  tee ecs-cluster.props
+ --region ap-southeast-1 \
+ --stack-name aws-infra-ecscli \
+ --query 'Stacks[0].Outputs' \
+ --output=text | \
+ perl -lpe 's/\s+/=/g' | \
+ tee ecs-cluster.props
 ```
 
 3.  Setup the environment variables using the file (ecs-cluster.props)
@@ -303,12 +311,16 @@ ecs-params-create.sh greeting
 
 ```
 ecs-cli compose --verbose \
-  --file greeting-docker-compose.yaml \
-  --task-role-arn $ECSRole \
-  --ecs-params ecs-params_greeting.yaml \
-  --project-name greeting \
-  service up \
-  --target-group-arn $GreetingTargetGroupArn \
-  --container-name greeting-service \
-  --container-port 8081
+ --file greeting-docker-compose.yaml \
+ --task-role-arn $ECSRole \
+ --ecs-params ecs-params_greeting.yaml \
+ --project-name greeting \
+ service up \
+ --target-group-arn $GreetingTargetGroupArn \
+ --container-name greeting-service \
+ --container-port 8081
+```
+
+```
+
 ```
