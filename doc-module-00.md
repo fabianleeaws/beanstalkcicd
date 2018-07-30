@@ -1,56 +1,48 @@
-## Preparing a your Lab environment 
+## Preparing a your Lab environment
+
 - This module is for configuring your dev environment
-- We will show the set up process of Cloud9 Env and Java Develpoment environment.
+- We will show the set up process of Cloud9 Env and Node Develpoment environment.
 - Cloud 9 is recommended as your dev IDE for studying this workshop
 
-
-
-## 1. Using Cloud9 
-
+## 1. Using Cloud9
 
 ### 1.1. Create your Cloud9 environments
-Before starting, you need to configure **your EC2 role** for Cloud9 environment instance.
 
-##### Launch your instance 
+##### Launch your instance
 
-1. Specify Environment name : "YOUR INITIAL-container-workshop"
+1.  Specify Environment name : "YOUR INITIAL-workshop"
 
 ![ec2 instance](./imgs/00/01.png)
 
-2. Select "Create a new instance"
-3. Select "t2.small"
+2.  Select "Create a new instance"
+3.  Select "t2.small"
 
-![ec2 instance](./imgs/00/02.png)
-	
-	4. Review and launching your environment	
-	
+![ec2 instance](./imgs/00/02.png) 4. Review and launching your environment
+
 ##### Open your environment
 
 ![ec2 instance](./imgs/00/03.png)
-	
 
 ### 1.2 Update your environment
 
-- Follow the "Java Sample for AWS Cloud 9"
+- Follow Step 1 in "Node.js Sample for AWS Cloud9"
 
-ref : https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-java.html
-
+ref : https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
 
 ### 1.3 Update your environment (optional reference)
 
-1. Check java --version and check the location of Java 
+1.  Check node version and check the location of Java
 
 ```
-$ java -version
-java version "1.7.0_171"
+$ node -v
+v10.7.0
 
-$ which java
-/usr/bin/java
-
+$ which node
+~/.nvm/versions/node/v10.7.0/bin/node
 ```
-	
-2. Upgrade java version to 1.8 (for development, we need to upgrade Java version and install required packages)
-	
+
+2.  Upgrade java version to 1.8 (for development, we need to upgrade Java version and install required packages)
+
 ```
 sudo yum list available java\*      # check available java version
 sudo yum -y install java-1.8.0 java-1.8.0-openjdk-devel        # install 1.8 java and javac
@@ -58,15 +50,15 @@ sudo yum remove java-1.7.0-openjdk -y # remove 1.7
 java -version											# check java version
 ```
 
-3. Update JAVA_HOME environment variable in .bashrc
+3.  Update JAVA_HOME environment variable in .bashrc
 
 ```
 vi ~/.bashrc
 ### add follwing content
 export JAVA_HOME=/usr/
 ```
-	
-4. Install Maven
+
+4.  Install Maven
 
 ```
 cd /usr/local
@@ -84,12 +76,11 @@ export PATH=${M2_HOME}/bin:${PATH}
 source /etc/profile.d/maven.sh
 
 # check the loaded environment variables  
-echo $PATH             
+echo $PATH
 ```
 
-5. Install AWS CLI and cofigure it
-https://docs.aws.amazon.com/cli/latest/userguide/installing.html
-
+5.  Install AWS CLI and cofigure it
+    https://docs.aws.amazon.com/cli/latest/userguide/installing.html
 
 ### 1.4 Install docker
 
@@ -99,7 +90,8 @@ docker --help
 ```
 
 ### 1.5 Install all other tools
-1. curl
-2. 
-3. Install ECS-CLI (optional)
-https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
+
+1.  curl
+2.
+3.  Install ECS-CLI (optional)
+    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
