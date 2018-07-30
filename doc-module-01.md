@@ -1,4 +1,4 @@
-## 1. Lab 1 : Create a sample Node API
+## 1. Lab 1 : Create a sample Node REST API
 
 In this module, we create a introduce the fundamental concept of CodeStar and how to build a quick CI/CD pipeline with CodeStar. You will be provided with hands-on on migrating your project to CodeStar project you created and how to build docker environment for your application
 
@@ -7,11 +7,15 @@ In this module, we create a introduce the fundamental concept of CodeStar and ho
 - Push docker image to ECR
 - Getting a docker from ECR and check it's availability on local machine
 
-### 1. Create a docker for this application.
+### 1. Create Node REST API
 
 #### 1.1 Dowonload all sources
 
-git clone https://github.com/aws-asean-builders/aws-container-workshop.git
+1.  Run this command to download source files for this Lab
+
+```
+git clone https://github.com/fabianleeaws/beanstalkcicd.git
+```
 
 #### 1.1 Compile your local files
 
