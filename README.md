@@ -18,7 +18,7 @@
 
 <hr>
 
-## [Lab 2 : Elastic Beanstalk Deployment using CLI](./doc-module-02.md)
+## [Lab 2 : Deployment with Elastic Beanstalk Command Line Interface (CLI)](./doc-module-02.md)
 
 <hr>
 
