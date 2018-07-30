@@ -41,12 +41,19 @@ app.listen(3000, () => {
 $ mkdir .ebextensions
 
 $ cp beanstalkcicd/lab-01/.ebextensions/options.config .ebextensions/
+```
+
+4.  Check the sample configuration
+
+```
+$ cat .ebextensions/options.config
+```
 
 #### 1.3 Configure Node start script
 
 1.  Add a start command to packages.json
-```
 
+```
 $ vi packages.json
 
 {
@@ -67,27 +74,30 @@ $ vi packages.json
 "author": "",
 "license": "ISC"
 }
-
 ```
+
 #### 1.3 Test sample Node REST API
 
 1.  Run this command to host the REST API
-```
 
+```
 $ node hello.js
-
 ```
+
 2.  Open a new terminal
 
 (./imgs/01/01.png)
 
 3.  Run the curl command to test API
-```
 
+```
 $ curl 'localhost:3000'
 
 Hello world from a Node.js app!
+```
+
+We're done, continue to [Lab 2 : Deployment with Elastic Beanstalk Command Line Interface (CLI)](./doc-module-02.md)
 
 ```
-We're done, continue to [Lab 2 : Deployment with Elastic Beanstalk Command Line Interface (CLI)](./doc-module-02.md)
+
 ```
