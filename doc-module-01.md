@@ -35,51 +35,59 @@ app.listen(3000, () => {
 })
 ```
 
+3.  Copy EB configuration
+
+```
+$ mkdir .ebextensions
+
+$ cp beanstalkcicd/lab-01/.ebextensions/options.config .ebextensions/
+
 #### 1.3 Configure Node start script
 
 1.  Add a start command to packages.json
-
 ```
+
 $ vi packages.json
 
 {
-  "name": "environment",
-  "version": "1.0.0",
-  "description": "___        ______     ____ _                 _  ___           / \\ \\      / / ___|   / ___| | ___  _   _  __| |/ _ \\         / _ \\ \\ /\\ / /\\___ \\  | |   | |/ _ \\| | | |/ _` | (_) |       / ___ \\ V  V /  ___) | | |___| | (_) | |_| | (_| |\\__, |      /_/   \\_\\_/\\_/  |____/   \\____|_|\\___/ \\__,_|\\__,_|  /_/   -----------------------------------------------------------------",
-  "main": "hello.js",
-  "dependencies": {
-    "express": "^4.16.3"
-  },
-  "devDependencies": {
-    "nodemon": "^1.18.3"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node hello.js"
-  },
-  "author": "",
-  "license": "ISC"
+"name": "environment",
+"version": "1.0.0",
+"description": "**\_ \_\_\_\_** \_**\_ \_ \_ \_** / \\ \\ / / **_| / _**| | **\_ \_ \_ **| |/ _ \\ / _ \\ \\ /\\ / /\\**_ \\ | | | |/ _ \\| | | |/ _` | (_) | / \_** \\ V V / **_) | | |_**| | (_) | |_| | (_| |\\\_\_, | /_/ \\_\\_/\\_/ |\_**\_/ \\\_\_**|_|\\**\_/ \\**,_|\\\_\_,_| /\_/ -----------------------------------------------------------------",
+"main": "hello.js",
+"dependencies": {
+"express": "^4.16.3"
+},
+"devDependencies": {
+"nodemon": "^1.18.3"
+},
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1",
+"start": "node hello.js"
+},
+"author": "",
+"license": "ISC"
 }
-```
 
+```
 #### 1.3 Test sample Node REST API
 
 1.  Run this command to host the REST API
-
 ```
+
 $ node hello.js
-```
 
+```
 2.  Open a new terminal
 
 (./imgs/01/01.png)
 
 3.  Run the curl command to test API
-
 ```
+
 $ curl 'localhost:3000'
 
 Hello world from a Node.js app!
-```
 
+```
 We're done, continue to [Lab 2 : Deployment with Elastic Beanstalk Command Line Interface (CLI)](./doc-module-02.md)
+```
