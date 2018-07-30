@@ -1,11 +1,6 @@
 ## 1. Lab 1 : Create a sample Node REST API
 
-In this module, we create a introduce the fundamental concept of CodeStar and how to build a quick CI/CD pipeline with CodeStar. You will be provided with hands-on on migrating your project to CodeStar project you created and how to build docker environment for your application
-
-- Create a docker for your application
-- Create a CodeBuilder for Java compilation and Dockerization
-- Push docker image to ECR
-- Getting a docker from ECR and check it's availability on local machine
+In this module, we create a simple Node REST API with Express test it locally on our Cloud9 environment.
 
 ### 1. Create Node REST API
 
