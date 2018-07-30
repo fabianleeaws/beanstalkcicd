@@ -50,6 +50,28 @@ Select a default region
 (default is 3): 7
 ```
 
+3.  Enter **<placeholder-application-name>**
+
+```
+Enter Application Name
+(default is "environment"): simple-node
+```
+
+4.  Enter **Y** to confirm Node.js usage
+
+```
+It appears you are using Node.js. Is this correct?
+(Y/n):
+```
+
+5.  Enter **n** when prompted to setup SSH access
+
+```
+Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
+Do you want to set up SSH for your instances?
+(Y/n): Y
+```
+
 1.  Create a cluster
     ![key chain](imgs/02/01.png)
 
