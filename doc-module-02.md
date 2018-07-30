@@ -24,7 +24,11 @@ EB CLI 3.14.3 (Python 2.7.1)
 
 ```
 $ eb init
+```
 
+2.  Enter **7** to select Singapore region
+
+```
 Select a default region
 1) us-east-1 : US East (N. Virginia)
 2) us-west-1 : US West (N. California)
@@ -43,7 +47,7 @@ Select a default region
 15) ca-central-1 : Canada (Central)
 16) eu-west-2 : EU (London)
 17) eu-west-3 : EU (Paris)
-(default is 3): **3**
+(default is 3): 7
 ```
 
 1.  Create a cluster
