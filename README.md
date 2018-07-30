@@ -18,7 +18,7 @@
 
 <hr>
 
-## [Lab 2 : Amazon ECS, first Deployment using CLI and CloudFormation](./doc-module-02.md)
+## [Lab 2 : Elastic Beanstalk Deployment using CLI](./doc-module-02.md)
 
 <hr>
 
