@@ -86,10 +86,12 @@ About to write to /home/ec2-user/environment/package.json:
 Is this OK? (yes)
 ```
 
-2.  Install express and nodemon
+3.  Install express and nodemon
 
 ```
 $ npm install --save-dev nodemon
+
+$ npm install express --save
 ```
 
 5.  Install AWS CLI and cofigure it
