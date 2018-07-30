@@ -25,11 +25,21 @@
 
 ### 1.2 Update your environment
 
-- Follow Step 1 in "Node.js Sample for AWS Cloud9"
+1.  Run the yum update command to help ensure the latest security updates and bug fixes are installed
 
-ref : https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
+```
+$ sudo yum -y update
+```
 
-### 1.3 Update your environment (optional reference)
+2.  Run this command to install the latest version of Node.js.
+
+```
+$ nvm install node
+```
+
+reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
+
+### 1.3 Configure your Node environment
 
 1.  Check node version and check the location of Node
 
@@ -86,22 +96,12 @@ About to write to /home/ec2-user/environment/package.json:
 Is this OK? (yes)
 ```
 
-3.  Install express and nodemon
+### 1.4 Install Express Framework for Node, we'll be using it to create simple REST APIs
+
+1.  Run this command to install the latest version of Express framework for Node. We'll be using it to create simple REST APIs
 
 ```
-$ npm install --save-dev nodemon
-
 $ npm install express --save
-```
-
-5.  Install AWS CLI and cofigure it
-    https://docs.aws.amazon.com/cli/latest/userguide/installing.html
-
-### 1.4 Install docker
-
-```
-sudo yum install docker
-docker --help
 ```
 
 ### 1.5 Install all other tools
