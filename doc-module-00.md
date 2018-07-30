@@ -104,4 +104,4 @@ Is this OK? (yes)
 $ npm install express --save
 ```
 
-We're done, continue to ## [Lab 0 : Preparing a Lab environment](./doc-module-00.md)
+We're done, continue to [Lab 1 : Create a sample Node API](./doc-module-01.md)

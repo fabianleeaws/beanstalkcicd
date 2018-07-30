@@ -14,7 +14,7 @@
 
 <hr>
 
-## [Lab 1 : Create Your First Docker Images ](./doc-module-01.md)
+## [Lab 1 : Create a sample Node API](./doc-module-01.md)
 
 <hr>
 
