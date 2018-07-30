@@ -55,4 +55,4 @@ $ curl 'localhost:3000'
 Hello world from a Node.js app!
 ```
 
-We're done, continue to [Lab 2 : Create a sample Node API](./doc-module-01.md)
+We're done, continue to [Lab 2 : Create a sample Node API](./doc-module-02.md)
