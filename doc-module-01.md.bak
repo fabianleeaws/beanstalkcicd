@@ -1,6 +1,6 @@
 ## 1. Lab 1 : Create a sample Node API
 
-In this module, we create a introduce the fundamental concept of CodeStar and how to build a quick CI/CD pipeline with CodeStar. You will be provided with hands-on on migrating your project to CodeStar project you created and how to build docker environment for your application
+In this module, we introduce the fundamental concept of CodeStar and how to build a quick CI/CD pipeline with CodeStar. You will be provided with hands-on on migrating your project to CodeStar project you created and how to build docker environment for your application
 
 - Create a docker for your application
 - Create a CodeBuilder for Java compilation and Dockerization
@@ -103,6 +103,7 @@ docker run -p 80:8080 -it hello-world bash
 docker run -d -p 80:8080 --name=test-1 hello-world
 
 docker build -t hello-world . --build-arg JAR_FILE="<YOUR_ARTIFACT_FILE>"
+
 ```
 
 2.  Check running docker and stop it
@@ -156,6 +157,7 @@ docker service logs myapp_webapp-service
 
 ```
 aws ecr create-repository --repository-name java-workshop
+
 ```
 
 2.  Check response and save a repository ARN
