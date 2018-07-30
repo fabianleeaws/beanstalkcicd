@@ -1,4 +1,4 @@
-# aws-container-workshop (Java application)
+# elastic-beanstalk-workshop (Node application)
 
 ## Preparation
 
@@ -6,8 +6,8 @@
 
 **Please set up or check your dev environment for more efficient studying for this workshop before starting**
 
-
 ## [Lab 0 : Preparing a Lab environment](./doc-module-00.md)
+
 <hr>
 
 ## Workshop Lab Guide for each module
@@ -18,7 +18,7 @@
 
 <hr>
 
-## [Lab 2 :  Amazon ECS, first Deployment using CLI and CloudFormation](./doc-module-02.md)
+## [Lab 2 : Amazon ECS, first Deployment using CLI and CloudFormation](./doc-module-02.md)
 
 <hr>
 
@@ -41,7 +41,7 @@
 
 # More Studies
 
-Microservice with Fargate : 
+Microservice with Fargate :
 https://github.com/aws-samples/aws-microservices-deploy-options
 
 Kube :
@@ -52,6 +52,3 @@ DevOps : https://github.com/stelligent/mu
 Kops : https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/
 
 ECS with CloudFormation : https://github.com/aws-samples/ecs-refarch-cloudformation
-
-
-
