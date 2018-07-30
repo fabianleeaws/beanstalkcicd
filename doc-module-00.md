@@ -51,7 +51,7 @@ $ which node
 ~/.nvm/versions/node/v10.7.0/bin/node
 ```
 
-2.  Initialise Node project packages, accept all defaults by hitting **enter** 10 times
+2.  Run this command to initialise Node project, accept all defaults by hitting **enter** 10 times
 
 ```
 $ npm init
@@ -102,15 +102,4 @@ Is this OK? (yes)
 
 ```
 $ npm install express --save
-```
-
-### 1.5 Install all other tools
-
-1.  curl
-2.
-3.  Install ECS-CLI (optional)
-    https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
-
-```
-
 ```
