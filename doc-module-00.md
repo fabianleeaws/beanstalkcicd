@@ -31,7 +31,7 @@ ref : https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
 
 ### 1.3 Update your environment (optional reference)
 
-1.  Check node version and check the location of Java
+1.  Check node version and check the location of Node
 
 ```
 $ node -v
@@ -41,42 +41,55 @@ $ which node
 ~/.nvm/versions/node/v10.7.0/bin/node
 ```
 
-2.  Upgrade java version to 1.8 (for development, we need to upgrade Java version and install required packages)
+2.  Initialise Node project packages
 
 ```
-sudo yum list available java\*      # check available java version
-sudo yum -y install java-1.8.0 java-1.8.0-openjdk-devel        # install 1.8 java and javac
-sudo yum remove java-1.7.0-openjdk -y # remove 1.7
-java -version											# check java version
+$ npm init
+
+This utility will walk you through creating a package.json file.
+It only covers the most common items, and tries to guess sensible defaults.
+
+See `npm help json` for definitive documentation on these fields
+and exactly what they do.
+
+Use `npm install <pkg>` afterwards to install a package and
+save it as a dependency in the package.json file.
+
+Press ^C at any time to quit.
+package name: (environment)
+version: (1.0.0)
+description:
+entry point: (hello.js)
+test command:
+git repository:
+keywords:
+author:
+license: (ISC)
+About to write to /home/ec2-user/environment/package.json:
+
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "___        ______     ____ _                 _  ___           / \\ \\      / / ___|   / ___| | ___  _   _  __| |/ _ \\         / _ \\ \\ /\\ / /\\___ \\  | |   | |/ _ \\| | | |/ _` | (_) |   "main": "hello.js",
+  "dependencies": {
+    "nodemon": "^1.18.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
+
+
+Is this OK? (yes)
 ```
 
-3.  Update JAVA_HOME environment variable in .bashrc
+2.  Install express and nodemon
 
 ```
-vi ~/.bashrc
-### add follwing content
-export JAVA_HOME=/usr/
-```
-
-4.  Install Maven
-
-```
-cd /usr/local
-sudo wget http://www-eu.apache.org/dist/maven/maven-3/3.5.3/binaries/apache-maven-3.5.3-bin.tar.gz
-sudo tar xzf apache-maven-3.5.3-bin.tar.gz
-sudo ln -s apache-maven-3.5.3  maven
-
-sudo vi /etc/profile.d/maven.sh
-
-# add following content.
-export M2_HOME=/usr/local/maven
-export PATH=${M2_HOME}/bin:${PATH}
-
-# load the environment variables in current shell using following command.
-source /etc/profile.d/maven.sh
-
-# check the loaded environment variables  
-echo $PATH
+$ npm install --save-dev nodemon
 ```
 
 5.  Install AWS CLI and cofigure it
@@ -95,3 +108,7 @@ docker --help
 2.
 3.  Install ECS-CLI (optional)
     https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ECS_CLI_installation.html
+
+```
+
+```
