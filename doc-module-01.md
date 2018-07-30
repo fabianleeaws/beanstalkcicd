@@ -1,4 +1,4 @@
-## 1. Lab 1 : Create a sample Node REST API
+## Lab 1 : Create a sample Node REST API
 
 In this module, we create a simple Node REST API with Express test it locally on our Cloud9 environment.
 
