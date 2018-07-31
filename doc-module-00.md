@@ -10,6 +10,8 @@
 
 ##### Launch your instance
 
+- Use the Singapore region!
+
 1.  Specify Environment name : "YOUR INITIAL-workshop"
 
 ![ec2 instance](./imgs/00/01.png)
@@ -39,7 +41,15 @@ $ nvm install node
 
 reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
 
-### 1.3 Configure your Node environment
+### 1.3 Create a CodeCommit repository
+
+1.  Run this command to create a repository
+
+```
+aws codecommit create-repository --repository-name <your repo name> --region <YOUR REGION>
+```
+
+### 1.4 Configure your Node environment
 
 1.  Check node version and check the location of Node
 
