@@ -117,10 +117,12 @@ Do you want to set up SSH for your instances?
 (Y/n): n
 ```
 
-#### 1.3 Create EB environment
+### 2. Create EB environment
 
-1.  Run eb create command to create an EB environment
+1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
 ```
 $ eb create sample-node-env1 --elb-type application
 ```
+
+2.
