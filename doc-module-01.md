@@ -67,12 +67,17 @@ to
   }
 ```
 
-#### 1.3 Test sample Node REST API
+#### 1.4 Test sample Node REST API
 
 1.  Run this command to host the REST API
 
 ```
-$ node index.js
+$ npm start
+
+> beanstalk-workshop@1.0.0 start /home/ec2-user/environment/beanstalk-workshop
+> node index.js
+
+Server is up on: 8080
 ```
 
 2.  Open a new terminal
