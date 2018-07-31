@@ -111,31 +111,33 @@ Use `npm install <pkg>` afterwards to install a package and
 save it as a dependency in the package.json file.
 
 Press ^C at any time to quit.
-package name: (environment)
+package name: (beanstalk-workshop)
 version: (1.0.0)
 description:
-entry point: (hello.js)
+entry point: (index.js)
 test command:
-git repository:
+git repository: (https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop)
 keywords:
 author:
 license: (ISC)
-About to write to /home/ec2-user/environment/package.json:
+About to write to /home/ec2-user/environment/beanstalk-workshop/package.json:
 
 {
-"name": "server",
-"version": "1.0.0",
-"description": "**\_ \_\_\_\_** \_**\_ \_ \_ \_** / \\ \\ / / **_| / _**| | **\_ \_ \_ **| |/ _ \\ / _ \\ \\ /\\ / /\\_\_\_ \\ | | | |/ _ \\| | | |/ _` | (_) | "main": "hello.js",
-"dependencies": {
-"nodemon": "^1.18.3"
-},
-"devDependencies": {},
-"scripts": {
-"test": "echo \"Error: no test specified\" && exit 1"
-},
-"author": "",
-"license": "ISC"
+  "name": "beanstalk-workshop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop"
+  },
+  "author": "",
+  "license": "ISC"
 }
+
 
 Is this OK? (yes)
 ```
