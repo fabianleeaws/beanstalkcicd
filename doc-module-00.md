@@ -43,7 +43,7 @@ reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/l
 
 ### 1.3 Create a CodeCommit repository
 
-1.  Run this command to create a repository
+1.  Run this command to create a repository in Singapore region
 
 ```
 $aws codecommit create-repository --repository-name <your repo name> --region ap-southeast-1
@@ -134,7 +134,7 @@ About to write to /home/ec2-user/environment/package.json:
 Is this OK? (yes)
 ```
 
-### 1.4 Install Express Framework for Node, we'll be using it to create simple REST APIs
+### 1.5 Install Express Framework for Node, we'll be using it to create simple REST APIs
 
 1.  Run this command to install the latest version of Express framework for Node. We'll be using it to create simple REST APIs
 
