@@ -62,10 +62,20 @@ $aws codecommit create-repository --repository-name <your repo name> --region ap
 }
 ```
 
-2.  Clone the repository
+2.  Configure Git credential helper included in the AWS CLI. The credential helper allows Git to use HTTPS and a cryptographically signed version of your IAM user credentials or Amazon EC2 instance role whenever Git needs to authenticate with AWS to interact with AWS CodeCommit repositories.
 
 ```
-$ git clone <your repo URL>
+$ git config --global credential.helper '!aws codecommit credential-helper $@'
+$ git config --global credential.UseHttpPath true
+```
+
+3.  Clone the repository
+
+```
+$ git clone <your repo's cloneUrlHttp>
+
+Cloning into 'beanstalkcicd'...
+warning: You appear to have cloned an empty repository.
 ```
 
 ### 1.4 Configure your Node environment
@@ -107,20 +117,19 @@ license: (ISC)
 About to write to /home/ec2-user/environment/package.json:
 
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "___        ______     ____ _                 _  ___           / \\ \\      / / ___|   / ___| | ___  _   _  __| |/ _ \\         / _ \\ \\ /\\ / /\\___ \\  | |   | |/ _ \\| | | |/ _` | (_) |   "main": "hello.js",
-  "dependencies": {
-    "nodemon": "^1.18.3"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC"
+"name": "server",
+"version": "1.0.0",
+"description": "**\_ \_\_\_\_** \_**\_ \_ \_ \_** / \\ \\ / / **_| / _**| | **\_ \_ \_ **| |/ _ \\ / _ \\ \\ /\\ / /\\_\_\_ \\ | | | |/ _ \\| | | |/ _` | (_) | "main": "hello.js",
+"dependencies": {
+"nodemon": "^1.18.3"
+},
+"devDependencies": {},
+"scripts": {
+"test": "echo \"Error: no test specified\" && exit 1"
+},
+"author": "",
+"license": "ISC"
 }
-
 
 Is this OK? (yes)
 ```
@@ -134,3 +143,7 @@ $ npm install express --save
 ```
 
 We're done, continue to [Lab 2 : Elastic Beanstalk Deployment using CLI](./doc-module-02.md)
+
+```
+
+```
