@@ -46,7 +46,26 @@ reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/l
 1.  Run this command to create a repository
 
 ```
-aws codecommit create-repository --repository-name <your repo name> --region <YOUR REGION>
+$aws codecommit create-repository --repository-name <your repo name> --region ap-southeast-1
+
+{
+    "repositoryMetadata": {
+        "repositoryName": "beanstalkcicd",
+        "cloneUrlSsh": "ssh://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalkcicd",
+        "lastModifiedDate": 1533019196.993,
+        "repositoryId": "e9165142-67bb-4dfc-b9e6-bfdc41043b4a",
+        "cloneUrlHttp": "https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalkcicd",
+        "creationDate": 1533019196.993,
+        "Arn": "arn:aws:codecommit:ap-southeast-1:973312664023:beanstalkcicd",
+        "accountId": "973312664023"
+    }
+}
+```
+
+2.  Clone the repository
+
+```
+$ git clone <your repo URL>
 ```
 
 ### 1.4 Configure your Node environment
