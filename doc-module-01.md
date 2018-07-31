@@ -43,29 +43,28 @@ $ sudo rm -r beanstalkcicd
 
 #### 1.3 Configure Node start script
 
-1.  Add a start command to packages.json
+1.  Edit the packages.json file
 
 ```
 $ vi packages.json
+```
 
+2.  Add a start command, changing the scripts block from
+
+```
 {
-"name": "environment",
-"version": "1.0.0",
-"description": "**\_ \_\_\_\_** \_**\_ \_ \_ \_** / \\ \\ / / **_| / _**| | **\_ \_ \_ **| |/ _ \\ / _ \\ \\ /\\ / /\\**_ \\ | | | |/ _ \\| | | |/ _` | (_) | / \_** \\ V V / **_) | | |_**| | (_) | |_| | (_| |\\\_\_, | /_/ \\_\\_/\\_/ |\_**\_/ \\\_\_**|_|\\**\_/ \\**,_|\\\_\_,_| /\_/ -----------------------------------------------------------------",
-"main": "index.js",
-"dependencies": {
-"express": "^4.16.3"
-},
-"devDependencies": {
-"nodemon": "^1.18.3"
-},
+  "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1"
+    }
+```
+
+to
+
+```
 "scripts": {
-"test": "echo \"Error: no test specified\" && exit 1",
-"start": "node index.js"
-},
-"author": "",
-"license": "ISC"
-}
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  }
 ```
 
 #### 1.3 Test sample Node REST API
