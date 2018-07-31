@@ -90,14 +90,14 @@ Select a repository
 (default is 1): 1
 ```
 
-Enter a name for your repository, I've chosen "beanstalk-workshop" in the following example
+Enter a name for your repository, I've chosen **"beanstalk-workshop"** in the following example
 
 ```
 Enter Repository Name
 (default is "origin"):  beanstalk-workshop
 ```
 
-Enter a name for your branch, I've chosen "default" in the following example
+Enter a name for your branch, I've chosen **"default"** in the following example
 
 ```
 Enter Branch Name
