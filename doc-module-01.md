@@ -25,28 +25,14 @@ $ cp beanstalkcicd/lab-01/hello.js hello.js
 ```
 $ cat hello.js
 
-const express = require('express')
-const app = express()
-app.get('/', (req, res) => {
-    res.send('Hello world from a Node.js app!')
-})
+const express = require("express");
+const app = express();
+app.get("/", (req, res) => {
+  res.send("Hello world from a Node.js app!");
+});
 app.listen(process.env.PORT, () => {
-    console.log('Server is up on 3000')
-})
-```
-
-3.  Copy EB configuration
-
-```
-$ mkdir .ebextensions
-
-$ cp beanstalkcicd/lab-01/.ebextensions/options.config .ebextensions/
-```
-
-4.  Check the sample configuration
-
-```
-$ cat .ebextensions/options.config
+  console.log("Server is up on: " + process.env.PORT);
+});
 ```
 
 #### 1.3 Configure Node start script
