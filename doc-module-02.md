@@ -105,7 +105,7 @@ Enter Branch Name
 (default is "default"): default
 ```
 
-6.  Enter **n** when prompted to setup SSH access
+7.  Enter **n** when prompted to setup SSH access
 
 ```
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
