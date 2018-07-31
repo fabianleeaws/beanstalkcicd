@@ -97,7 +97,3 @@ Hello world from a Node.js app!
 ```
 
 We're done, continue to [Lab 2 : Deployment with Elastic Beanstalk Command Line Interface (CLI)](./doc-module-02.md)
-
-```
-
-```
