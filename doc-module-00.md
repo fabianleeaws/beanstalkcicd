@@ -41,25 +41,14 @@ $ nvm install node
 
 reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
 
-### 1.3 Create a CodeCommit repository
+### 1.3 Create a working directory for this workshop
 
-1.  Run this command to create a repository in Singapore region
+1.  Create folder, and change current directory
 
 ```
-$ aws codecommit create-repository --repository-name <your repo name> --region ap-southeast-1
+$ mkdir beanstalk-workshop
 
-{
-    "repositoryMetadata": {
-        "repositoryName": "beanstalk-workshop",
-        "cloneUrlSsh": "ssh://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop",
-        "lastModifiedDate": 1533019196.993,
-        "repositoryId": "e9165142-67bb-4dfc-b9e6-bfdc41043b4a",
-        "cloneUrlHttp": "https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop",
-        "creationDate": 1533019196.993,
-        "Arn": "arn:aws:codecommit:ap-southeast-1:973312664023:beanstalk-workshop",
-        "accountId": "973312664023"
-    }
-}
+$ cd beanstalk-workshop
 ```
 
 2.  Configure Git credential helper included in the AWS CLI. The credential helper allows Git to use HTTPS and a cryptographically signed version of your IAM user credentials or Amazon EC2 instance role whenever Git needs to authenticate with AWS to interact with AWS CodeCommit repositories.
@@ -67,21 +56,6 @@ $ aws codecommit create-repository --repository-name <your repo name> --region a
 ```
 $ git config --global credential.helper '!aws codecommit credential-helper $@'
 $ git config --global credential.UseHttpPath true
-```
-
-3.  Clone the repository
-
-```
-$ git clone <your repo's cloneUrlHttp>
-
-Cloning into 'beanstalkcicd'...
-warning: You appear to have cloned an empty repository.
-```
-
-4.  Change the working directory to the cloned repository, this will be our working directory throughout this workshop
-
-```
-$ cd beanstalk-workshop
 ```
 
 ### 1.4 Configure your Node environment
