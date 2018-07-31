@@ -17,7 +17,7 @@ $ git clone https://github.com/fabianleeaws/beanstalkcicd.git
 1.  Run cp command
 
 ```
-$ cp beanstalkcicd/lab-01/hello.js hello.js
+$ cp beanstalkcicd/lab-01/index.js index.js
 ```
 
 2.  Check the sample code
