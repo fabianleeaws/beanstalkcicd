@@ -127,4 +127,10 @@ Do you want to set up SSH for your instances?
 $ eb create sample-node-env1 --elb-type application
 ```
 
-2.
+#### 2.2 View deployed application
+
+1.  Run this command to view deployed application
+
+```
+$ eb open
+```
