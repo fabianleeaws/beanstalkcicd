@@ -129,7 +129,9 @@ $ eb create sample-node-env1 --elb-type application
 
 #### 2.2 View deployed application
 
-1.  Run this command to view deployed application
+1.  Navigate to the EB service, and select your newly created environment **sample-node-env1**
+
+![newly created environment](.imgs/02/01.png)
 
 ```
 $ eb open
