@@ -97,6 +97,14 @@ Enter Repository Name
 (default is "origin"):  beanstalk-workshop
 ```
 
+Enter a name for your branch, I've chosen "default" in the following example
+
+```
+Enter Branch Name
+***** Must have at least one commit to create a new branch with CodeCommit *****
+(default is "default"): default
+```
+
 6.  Enter **n** when prompted to setup SSH access
 
 ```
