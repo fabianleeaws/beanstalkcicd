@@ -117,7 +117,9 @@ Do you want to set up SSH for your instances?
 (Y/n): n
 ```
 
-### 2. Create EB environment
+### 2. Deploy application with EB CLI
+
+#### 2.1 Create EB environment
 
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
