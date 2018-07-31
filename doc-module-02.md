@@ -50,30 +50,18 @@ Select a default region
 (default is 3): 7
 ```
 
-3.  Enter **sample node** as application name
+3.  Enter **beanstalk-workshop** as application name
 
 ```
 Enter Application Name
-(default is "environment"): sample-node
+(default is "beanstalk-workshop"): beanstalk-workshop
 ```
 
-4.  Enter **1** to select Node.js platform
+4.  Enter **Y** to select Node.js platform
 
 ```
-Select a platform.
-1) Node.js
-2) PHP
-3) Python
-4) Ruby
-5) Tomcat
-6) IIS
-7) Docker
-8) Multi-container Docker
-9) GlassFish
-10) Go
-11) Java
-12) Packer
-(default is 1):
+It appears you are using Node.js. Is this correct?
+(Y/n): Y
 ```
 
 5.  Enter **n** when prompted to setup SSH access
@@ -82,6 +70,13 @@ Select a platform.
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
 Do you want to set up SSH for your instances?
 (Y/n): n
+```
+
+6.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
+
+```
+Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
+Do you wish to continue with CodeCommit? (y/N) (default is n): y
 ```
 
 #### 1.3 Commit application to repository
