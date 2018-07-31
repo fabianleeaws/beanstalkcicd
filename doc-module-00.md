@@ -78,6 +78,14 @@ Cloning into 'beanstalkcicd'...
 warning: You appear to have cloned an empty repository.
 ```
 
+4.  Initialise git repository
+
+```
+$ git init
+
+Initialized empty Git repository in /home/ec2-user/environment/.git/
+```
+
 ### 1.4 Configure your Node environment
 
 1.  Check node version and check the location of Node

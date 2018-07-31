@@ -35,6 +35,12 @@ app.listen(process.env.PORT, () => {
 });
 ```
 
+3.  Now that we have the files needed, remove the cloned repository
+
+```
+$ sudo rm -r beanstalkcicd
+```
+
 #### 1.3 Configure Node start script
 
 1.  Add a start command to packages.json
