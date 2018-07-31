@@ -143,7 +143,3 @@ $ npm install express --save
 ```
 
 We're done, continue to [Lab 2 : Elastic Beanstalk Deployment using CLI](./doc-module-02.md)
-
-```
-
-```
