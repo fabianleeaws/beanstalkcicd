@@ -23,7 +23,7 @@ $ cp beanstalkcicd/lab-01/index.js index.js
 2.  Check the sample code
 
 ```
-$ cat hello.js
+$ cat index.js
 
 const express = require("express");
 const app = express();
@@ -52,7 +52,7 @@ $ vi packages.json
 "name": "environment",
 "version": "1.0.0",
 "description": "**\_ \_\_\_\_** \_**\_ \_ \_ \_** / \\ \\ / / **_| / _**| | **\_ \_ \_ **| |/ _ \\ / _ \\ \\ /\\ / /\\**_ \\ | | | |/ _ \\| | | |/ _` | (_) | / \_** \\ V V / **_) | | |_**| | (_) | |_| | (_| |\\\_\_, | /_/ \\_\\_/\\_/ |\_**\_/ \\\_\_**|_|\\**\_/ \\**,_|\\\_\_,_| /\_/ -----------------------------------------------------------------",
-"main": "hello.js",
+"main": "index.js",
 "dependencies": {
 "express": "^4.16.3"
 },
@@ -61,7 +61,7 @@ $ vi packages.json
 },
 "scripts": {
 "test": "echo \"Error: no test specified\" && exit 1",
-"start": "node hello.js"
+"start": "node index.js"
 },
 "author": "",
 "license": "ISC"
@@ -73,7 +73,7 @@ $ vi packages.json
 1.  Run this command to host the REST API
 
 ```
-$ node hello.js
+$ node index.js
 ```
 
 2.  Open a new terminal
