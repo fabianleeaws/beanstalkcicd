@@ -20,7 +20,17 @@ EB CLI 3.14.3 (Python 2.7.1)
 
 #### 1.2 Configure EB CLI
 
-1.  Initialise EB project
+1.  Initialise your Git repository
+
+```
+$ git init
+
+Initialized empty Git repository in /home/ec2-user/environment/beanstalk-workshop/.git/
+```
+
+EB CLI will now recognize that your application is set up with Git.
+
+2.  Initialise EB application
 
 ```
 $ eb init
@@ -64,19 +74,35 @@ It appears you are using Node.js. Is this correct?
 (Y/n): Y
 ```
 
-5.  Enter **n** when prompted to setup SSH access
+5.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
+
+```
+WARNING: Git is in a detached head state. Using branch "default".
+Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
+Do you wish to continue with CodeCommit? (y/N) (default is n): y
+```
+
+6.  Enter **1** to create a new CodeCommit repository
+
+```
+Select a repository
+1) [ Create new Repository ]
+(default is 1): 1
+```
+
+Enter a name for your repository, I've chosen "beanstalk-workshop" in the following example
+
+```
+Enter Repository Name
+(default is "origin"):  beanstalk-workshop
+```
+
+6.  Enter **n** when prompted to setup SSH access
 
 ```
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
 Do you want to set up SSH for your instances?
 (Y/n): n
-```
-
-6.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
-
-```
-Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
-Do you wish to continue with CodeCommit? (y/N) (default is n): y
 ```
 
 #### 1.3 Commit application to repository
