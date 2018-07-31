@@ -46,17 +46,17 @@ reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/l
 1.  Run this command to create a repository in Singapore region
 
 ```
-$aws codecommit create-repository --repository-name <your repo name> --region ap-southeast-1
+$ aws codecommit create-repository --repository-name <your repo name> --region ap-southeast-1
 
 {
     "repositoryMetadata": {
-        "repositoryName": "beanstalkcicd",
-        "cloneUrlSsh": "ssh://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalkcicd",
+        "repositoryName": "beanstalk-workshop",
+        "cloneUrlSsh": "ssh://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop",
         "lastModifiedDate": 1533019196.993,
         "repositoryId": "e9165142-67bb-4dfc-b9e6-bfdc41043b4a",
-        "cloneUrlHttp": "https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalkcicd",
+        "cloneUrlHttp": "https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/beanstalk-workshop",
         "creationDate": 1533019196.993,
-        "Arn": "arn:aws:codecommit:ap-southeast-1:973312664023:beanstalkcicd",
+        "Arn": "arn:aws:codecommit:ap-southeast-1:973312664023:beanstalk-workshop",
         "accountId": "973312664023"
     }
 }
@@ -78,12 +78,10 @@ Cloning into 'beanstalkcicd'...
 warning: You appear to have cloned an empty repository.
 ```
 
-4.  Initialise git repository
+4.  Change the working directory to the cloned repository, this will be our working directory throughout this workshop
 
 ```
-$ git init
-
-Initialized empty Git repository in /home/ec2-user/environment/.git/
+$ cd beanstalk-workshop
 ```
 
 ### 1.4 Configure your Node environment
