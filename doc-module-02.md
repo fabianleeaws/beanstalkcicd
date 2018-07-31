@@ -72,12 +72,22 @@ Do you want to set up SSH for your instances?
 (Y/n): n
 ```
 
-#### 1.3 Create EB environment
+#### 1.3 Commit application to repository
+
+1.  Add and commit changes
+
+```
+$ git add .
+
+$ git commit -m "first commit"
+```
+
+#### 1.4 Create EB environment
 
 1.  Run eb create command to create an EB environment
 
 ```
-
+$ eb create sample-node-env1 --elb-type application
 ```
 
 1.  Create a cluster
@@ -319,6 +329,10 @@ ecs-cli compose --verbose \
  --target-group-arn $GreetingTargetGroupArn \
  --container-name greeting-service \
  --container-port 8081
+```
+
+```
+
 ```
 
 ```
