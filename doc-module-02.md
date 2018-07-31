@@ -50,18 +50,30 @@ Select a default region
 (default is 3): 7
 ```
 
-3.  Enter **<placeholder-application-name>**
+3.  Enter **sample node** as application name
 
 ```
 Enter Application Name
 (default is "environment"): sample-node
 ```
 
-4.  Enter **Y** to confirm Node.js usage
+4.  Enter **1** to select Node.js platform
 
 ```
-It appears you are using Node.js. Is this correct?
-(Y/n):
+Select a platform.
+1) Node.js
+2) PHP
+3) Python
+4) Ruby
+5) Tomcat
+6) IIS
+7) Docker
+8) Multi-container Docker
+9) GlassFish
+10) Go
+11) Java
+12) Packer
+(default is 1):
 ```
 
 5.  Enter **n** when prompted to setup SSH access
