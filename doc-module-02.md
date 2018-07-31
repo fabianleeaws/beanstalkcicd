@@ -131,8 +131,12 @@ $ eb create sample-node-env1 --elb-type application
 
 1.  Navigate to the EB service, and select your newly created environment **sample-node-env1**
 
-![newly created environment](.imgs/02/01.png)
+![newly created environment](./imgs/02/01.png)
 
-```
-$ eb open
-```
+2.  Access your application via the URL shown
+
+![environment URL](./imgs/02/02.png)
+
+You'll be greeted with the hello world message
+
+![node hello world](./imgs/02/03.png)
