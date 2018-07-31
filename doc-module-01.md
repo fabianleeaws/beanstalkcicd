@@ -77,7 +77,7 @@ $ node hello.js
 3.  Run the curl command to test API
 
 ```
-$ curl 'localhost:3000'
+$ curl localhost:8080
 
 Hello world from a Node.js app!
 ```
