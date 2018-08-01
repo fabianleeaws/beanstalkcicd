@@ -117,9 +117,19 @@ Do you want to set up SSH for your instances?
 (Y/n): n
 ```
 
-### 2. Deploy application with EB CLI
+### 2. Setup repository configuration
 
-#### 2.1 Create EB environment
+As a best practice for Node, we should not commit our dependencies to our repository
+
+1.  Run the command to tell git to ignore the **node_modules** folder
+
+```
+$ echo "node_modules" >> .gitignore
+```
+
+### 3. Deploy application with EB CLI
+
+#### 3.1 Create EB environment
 
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
@@ -127,7 +137,7 @@ Do you want to set up SSH for your instances?
 $ eb create sample-node-env1 --elb-type application
 ```
 
-#### 2.2 View deployed application
+#### 3.2 View deployed application
 
 1.  Navigate to the EB service, and select your newly created environment **sample-node-env1**
 
