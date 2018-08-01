@@ -28,19 +28,29 @@ $ git init
 Initialized empty Git repository in /home/ec2-user/environment/beanstalk-workshop/.git/
 
 $ git add .
+```
 
+As a best practice for Node, we should not commit our dependencies to our repository
+
+2.  Run the command to tell git to ignore the **node_modules** folder
+
+```
+$ echo "node_modules" >> .gitignore
+```
+
+```
 $ git commit -m "first commit"
 ```
 
 EB CLI will now recognize that your application is set up with Git.
 
-2.  Initialise EB application
+3.  Initialise EB application
 
 ```
 $ eb init
 ```
 
-2.  Enter **7** to select Singapore region
+4.  Enter **7** to select Singapore region
 
 ```
 Select a default region
@@ -64,21 +74,21 @@ Select a default region
 (default is 3): 7
 ```
 
-3.  Enter **beanstalk-workshop** as application name
+5.  Enter **beanstalk-workshop** as application name
 
 ```
 Enter Application Name
 (default is "beanstalk-workshop"): beanstalk-workshop
 ```
 
-4.  Enter **Y** to select Node.js platform
+6.  Enter **Y** to select Node.js platform
 
 ```
 It appears you are using Node.js. Is this correct?
 (Y/n): Y
 ```
 
-5.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
+7.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
 
 ```
 WARNING: Git is in a detached head state. Using branch "default".
@@ -86,7 +96,7 @@ Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source cont
 Do you wish to continue with CodeCommit? (y/N) (default is n): y
 ```
 
-6.  Enter **1** to create a new CodeCommit repository
+8.  Enter **1** to create a new CodeCommit repository
 
 ```
 Select a repository
@@ -109,22 +119,12 @@ Enter Branch Name
 (default is "master"): master
 ```
 
-7.  Enter **n** when prompted to setup SSH access
+9.  Enter **n** when prompted to setup SSH access
 
 ```
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
 Do you want to set up SSH for your instances?
 (Y/n): n
-```
-
-### 2. Setup repository configuration
-
-As a best practice for Node, we should not commit our dependencies to our repository
-
-1.  Run the command to tell git to ignore the **node_modules** folder
-
-```
-$ echo "node_modules" >> .gitignore
 ```
 
 ### 3. Deploy application with EB CLI
