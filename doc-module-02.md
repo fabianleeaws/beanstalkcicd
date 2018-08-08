@@ -173,10 +173,4 @@ app.get("/", (req, res) => {
 
 2.  Now refresh your browser to view the updated API response
 
-```
 ![node server process port](./imgs/02/04.png)
-```
-
-```
-
-```
