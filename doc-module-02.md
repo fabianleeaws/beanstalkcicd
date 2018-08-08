@@ -171,6 +171,24 @@ app.get("/", (req, res) => {
 });
 ```
 
-2.  Now refresh your browser to view the updated API response
+2.  Commit the changes to git. As you've configured CodeCommit as your repository during **eb init**, only committed changes to your repository will be deployed
+
+```
+$ git add .
+$ git commit -m "v2.0"
+$ git push
+```
+
+3.  Deploy your updated application
+
+```
+$ eb deploy
+```
+
+4.  Now refresh your browser to view the updated API response
 
 ![node server process port](./imgs/02/04.png)
+
+```
+
+```
