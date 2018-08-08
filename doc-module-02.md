@@ -165,14 +165,18 @@ app.get("/", (req, res) => {
 
 to
 
-````
+```
 app.get("/", (req, res) => {
   res.send("Server is up on: " + process.env.PORT);
 });
 ```
 
-2. Now refresh your browser to view the updated API response
+2.  Now refresh your browser to view the updated API response
+
 ```
 ![node server process port](./imgs/02/04.png)
 ```
-````
+
+```
+
+```
