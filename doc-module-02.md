@@ -152,3 +152,26 @@ $ eb create sample-node-env1 --elb-type application
 You'll be greeted with the hello world message
 
 ![node hello world](./imgs/02/03.png)
+
+### 4. Updating an application with EB CLI
+
+1.  Edit **index.js** file and change our API response string from
+
+```
+app.get("/", (req, res) => {
+  res.send("Hello world from a Node.js app2!");
+});
+```
+
+to
+
+````
+app.get("/", (req, res) => {
+  res.send("Server is up on: " + process.env.PORT);
+});
+```
+
+2. Now refresh your browser to view the updated API response
+
+![node server process port](./imgs/02/04.png)
+````
