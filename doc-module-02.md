@@ -219,18 +219,15 @@ Add the following configuration to the newly created file
 
 ```
 option_settings:
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateType: Immutable
   aws:elasticbeanstalk:command:
     DeploymentPolicy: Immutable
-    HealthCheckSuccessThreshold: Warning
-    IgnoreHealthCheck: true
-    Timeout: "900"
-  aws:autoscaling:updatepolicy:rollingupdate:
-    RollingUpdateEnabled: true
-    MaxBatchSize: 5
-    MinInstancesInService: 2
-    RollingUpdateType: Health
-    Timeout: PT45M
+    BatchSize: '100'
+    BatchSizeType: Percentage
 ```
+
+3.  The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options. You must remove these settings if you want to use configuration files to configure the same. See Recommended Values for details. Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
