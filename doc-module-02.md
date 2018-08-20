@@ -347,7 +347,3 @@ $ eb deploy
 2.  The new application was deployed to both instances concurrently
 
 We're done! continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
-
-```
-
-```
