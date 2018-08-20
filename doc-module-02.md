@@ -189,8 +189,10 @@ $ eb deploy
 
 ![node server process port](./imgs/02/04.png)
 
-We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
-
 ### 4. Elastic Beanstalk Deployment Policies
 
 AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments. By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
+
+Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html
+
+We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
