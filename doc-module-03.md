@@ -33,9 +33,9 @@ EXPOSE 8080
 CMD [ "npm", "start" ]
 ```
 
-**Note**: The Elastic Beanstalk Node.js platform uses a reverse proxy to relay requests from port 80 on the instance to your application listening on port 8081. Elastic Beanstalk provides a default proxy configuration that you can either extend or override completely with your own configuration.
+**Note**: You can specify multiple container ports, but Elastic Beanstalk uses only the first one to connect your container to the host's reverse proxy and route requests from the public Internet.
 
-Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html
+Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/create_deploy_docker_image.html
 
 2.  Create a **.dockerignore** file, and edit it in the IDE
 
