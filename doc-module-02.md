@@ -7,7 +7,7 @@
 1.  Run this command to install EB CLI
 
 ```
-$ pip install awsebcli --upgrade --user
+$ pip install awsebcli==3.14.4 --upgrade --user
 ```
 
 2.  Verify EB CLI is installed
@@ -15,7 +15,7 @@ $ pip install awsebcli --upgrade --user
 ```
 $ eb --version
 
-EB CLI 3.14.3 (Python 2.7.1)
+EB CLI 3.14.4 (Python 2.7.1)
 ```
 
 #### 1.2 Configure EB CLI
