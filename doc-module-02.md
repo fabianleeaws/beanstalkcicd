@@ -229,6 +229,27 @@ option_settings:
 
 3.  The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options. You must remove these settings if you want to use configuration files to configure the same. See Recommended Values for details. Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
 
+We will now remove the recommended values with EB CLI (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-configuration-methods-after.html#configuration-options-remove-ebcli)
+
+**eb config** will open the local configuration file with nano text editor
+
+```
+$ eb config
+```
+
+Search using nano with **ctrl-W**, and enter "aws:elasticbeanstalk:command:"
+
+```
+aws:elasticbeanstalk:command:
+  BatchSize: '30'
+  BatchSizeType: Percentage
+  DeploymentPolicy: Immutable
+  IgnoreHealthCheck: 'true'
+  Timeout: '900'
+```
+
+Notice BatchSize is at 30% rather than the 100% in set our **ImmutDeploy.config** configuration file
+
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
 ```
