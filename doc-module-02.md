@@ -248,7 +248,15 @@ aws:elasticbeanstalk:command:
   Timeout: '900'
 ```
 
-Notice BatchSize is at 30% rather than the 100% in set our **ImmutDeploy.config** configuration file
+Notice **BatchSize** is at 30% rather than the 100% in set our **ImmutDeploy.config** configuration file. Delete the entire line containing **BatchSize** so it looks like this:
+
+```
+aws:elasticbeanstalk:command:
+  BatchSizeType: Percentage
+  DeploymentPolicy: Immutable
+  IgnoreHealthCheck: 'true'
+  Timeout: '900'
+```
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
