@@ -36,7 +36,7 @@ $ sudo yum -y update
 2.  Run this command to install the latest version of Node.js.
 
 ```
-$ nvm install node
+$ nvm install 10.9.0
 ```
 
 reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
