@@ -64,7 +64,7 @@ $ git config --global credential.UseHttpPath true
 
 ```
 $ node -v
-v10.7.0
+v10.9.0
 
 $ which node
 ~/.nvm/versions/node/v10.7.0/bin/node
