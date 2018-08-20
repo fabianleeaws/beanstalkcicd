@@ -270,7 +270,35 @@ The Elastic Beanstalk Command Line Interface (EB CLI) and Elastic Beanstalk cons
 
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
 
-2.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+4.  We will override the recommended value with **eb config** command
+
+```
+$ eb config
+```
+
+Use **ctrl-W** to search for "aws:elasticbeanstalk:command", and remove the "BatchSize" & "BatchSizeType" lines.
+
+Before:
+
+```
+aws:elasticbeanstalk:command:
+  BatchSize: '30'
+  BatchSizeType: Percentage
+  DeploymentPolicy: RollingWithAdditionalBatch
+  IgnoreHealthCheck: 'false'
+  Timeout: '600'
+```
+
+After:
+
+```
+aws:elasticbeanstalk:command:
+  DeploymentPolicy: RollingWithAdditionalBatch
+  IgnoreHealthCheck: 'false'
+  Timeout: '600'
+```
+
+5.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
 
 ```
 app.get("/", (req, res) => {
