@@ -244,8 +244,8 @@ $ eb create docker-node-env1 --elb-type application
 
 2.  Access your application via the URL shown
 
-![environment URL](./imgs/02/02.png)
+![environment URL](./imgs/03/01.png)
 
 You'll be greeted with the Docker node message
 
-![node hello world](./imgs/03/01.png)
+![node hello world](./imgs/03/02.png)
