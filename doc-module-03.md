@@ -33,12 +33,21 @@ EXPOSE 8081
 CMD [ "npm", "start" ]
 ```
 
-**Note**: The Node.js platform uses a reverse proxy to relay requests from port 80 on the instance to your application listening on port 8081. Elastic Beanstalk provides a default proxy configuration that you can either extend or override completely with your own configuration.
+**Note**: The Elastic Beanstalk Node.js platform uses a reverse proxy to relay requests from port 80 on the instance to your application listening on port 8081. Elastic Beanstalk provides a default proxy configuration that you can either extend or override completely with your own configuration.
 
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/nodejs-platform-proxy.html
 
-2.  Clone your git repo
+2.  Create a **.dockerignore** file, and edit it in the IDE
 
 ```
-git clone <your repo URL>
+$ touch ~/environment/beanstalk-workshop/.dockerignore
 ```
+
+Add the following configuration:
+
+```
+node_modules
+npm-debug.log
+```
+
+The docker ignore file specifies files & folders to ignore when executing the **COPY** command in the Dockerfile above
