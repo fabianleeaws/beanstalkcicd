@@ -260,6 +260,16 @@ option_settings:
 $ eb deploy
 ```
 
+3.  In the AWS console, navigate to Elastic Beanstalk -> sample-node-env1 -> Configuration -> Rolling updates and deployments.
+
+![Application deployments](./imgs/02/05.png)
+
+Note that batch size is set at **30%** rather than the fixed batch size of **2**. This is due to EB CLI defaulting to recommended values.
+
+The Elastic Beanstalk Command Line Interface (EB CLI) and Elastic Beanstalk console provide recommended values for some configuration options. These values can be different from the default values and are set at the API level when your environment is created. Recommended values allow Elastic Beanstalk to improve the default environment configuration without making backwards incompatible changes to the API.
+
+Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
+
 2.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
 
 ```
