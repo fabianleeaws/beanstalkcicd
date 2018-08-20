@@ -32,11 +32,4 @@
 Microservice with Fargate :
 https://github.com/aws-samples/aws-microservices-deploy-options
 
-Kube :
-https://github.com/aws-samples/aws-workshop-for-kubernetes
-
 DevOps : https://github.com/stelligent/mu
-
-Kops : https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/
-
-ECS with CloudFormation : https://github.com/aws-samples/ecs-refarch-cloudformation
