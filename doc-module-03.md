@@ -116,7 +116,7 @@ $ curl localhost:8080
 Docker node is up on: 8080
 ```
 
-### 2. Deploy Docker Containers on Elastic Beanstalk
+### 2. Deploy Containerised Application on Elastic Beanstalk
 
 #### 2.1 Reinitialise Elastic Beanstalk Application to use Docker platform
 
@@ -156,49 +156,64 @@ Select a default region
 (default is 3): 7
 ```
 
-4.  Enter **beanstalk-workshop** as application name
+4.  Enter **2** Create a new application called **beanstalk-workshop-node**
 
 ```
+Select an application to use
+1) beanstalk-workshop
+2) [ Create new Application ]
+
 Enter Application Name
-(default is "beanstalk-workshop"): beanstalk-workshop
+(default is "beanstalk-workshop2"): beanstalk-workshop-node
 ```
 
-5.  Enter **Y** to select Node.js platform
+5.  Enter **Y** to select Docker platform
 
 ```
-It appears you are using Node.js. Is this correct?
+It appears you are using Docker. Is this correct?
 (Y/n): Y
+```
+
+Enter **1** to select docker version **18.03.1-ce**
+
+```
+Select a platform version.
+1) Docker 18.03.1-ce
+2) Docker 17.12.1-ce
+3) Docker 17.09.1-ce
+4) Docker 17.06.2-ce
+5) Docker 17.03.2-ce
+6) Docker 1.12.6
+7) Docker 1.11.2
+8) Docker 1.9.1
+9) Docker 1.7.1
+10) Docker 1.6.2
+(default is 1): 1
 ```
 
 6.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
 
 ```
-WARNING: Git is in a detached head state. Using branch "default".
 Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
 Do you wish to continue with CodeCommit? (y/N) (default is n): y
 ```
 
-7.  Enter **1** to create a new CodeCommit repository
+7.  Enter **1** to select existing **beanstalk-workshop** CodeCommit repository
 
 ```
 Select a repository
-1) [ Create new Repository ]
+1) beanstalk-workshop
+2) [ Create new Repository ]
+(default is 2): 2
+```
+
+Enter **1** to select existing **master** branch
+
+```
+Select a branch
+1) master
+2) [ Create new Branch with local HEAD ]
 (default is 1): 1
-```
-
-Enter a name for your repository, I've chosen **"beanstalk-workshop"** in the following example
-
-```
-Enter Repository Name
-(default is "origin"):  beanstalk-workshop
-```
-
-Enter a name for your branch, I've chosen **"master"** in the following example
-
-```
-Enter Branch Name
-***** Must have at least one commit to create a new branch with CodeCommit *****
-(default is "master"): master
 ```
 
 8.  Enter **n** when prompted to setup SSH access
@@ -207,4 +222,15 @@ Enter Branch Name
 Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
 Do you want to set up SSH for your instances?
 (Y/n): n
+```
+
+#### 2.2 Deploy Containerised Application
+
+1.  Redeploy our application:
+
+```
+$ git add .
+$ git commit -m "Docker Node"
+$ git push
+$ eb deploy
 ```
