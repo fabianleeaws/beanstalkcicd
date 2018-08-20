@@ -341,7 +341,7 @@ $ eb deploy
 
 8.  Note the output from the **eb deploy** command:
 
-![Fixed: 2](./imgs/02/06.png)
+![Rolling with batch deployment](./imgs/02/07.png)
 
 1.  A batch of 2 instances were launched concurrently
 2.  The new application was deployed to both instances concurrently
