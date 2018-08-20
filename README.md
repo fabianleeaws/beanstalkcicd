@@ -25,18 +25,6 @@
 ## [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
 <hr>
-
-## [Lab 4 : Logging and Monitoring](./doc-module-04.md)
-
-<hr>
-
-## [Lab 5 : Authentication & Security & Service Discovery](./doc-module-05.md)
-
-<hr>
-
-## [Lab 6 : More topics](./doc-module-06.md)
-
-<hr>
 <hr>
 
 # More Studies
