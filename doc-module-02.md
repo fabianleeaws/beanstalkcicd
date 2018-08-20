@@ -191,8 +191,49 @@ $ eb deploy
 
 ### 4. Elastic Beanstalk Deployment Policies
 
-AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments. By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
+AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments.
 
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html
 
+During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version.
+
+#### 4.1 Changing Deployment Policy
+
+By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
+
+Let's change the deployment policy from rolling to Immutable. Immutable deployments provision a full set of new EC2 instances in a separate Auto Scaling group alongside existing instances.
+
+1.  Create a new folder **.ebextensions**. ebextensions are used to customise our Elastic Beanstalk environments.
+
+```
+$ mkdir ~/environment/beanstalk-workshop/.ebextensions
+```
+
+2.  Create our configuration file **ImmutDeploy.config** in the ebextensions folder
+
+```
+$ touch ~/environment/beanstalk-workshop/.ebextensions/ImmutDeploy.config2
+```
+
+Add the following configuration to the newly created file
+
+```
+option_settings:
+  aws:elasticbeanstalk:command:
+    DeploymentPolicy: Immutable
+    HealthCheckSuccessThreshold: Warning
+    IgnoreHealthCheck: true
+    Timeout: "900"
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateEnabled: true
+    MaxBatchSize: 5
+    MinInstancesInService: 2
+    RollingUpdateType: Health
+    Timeout: PT45M
+```
+
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
+
+```
+
+```
