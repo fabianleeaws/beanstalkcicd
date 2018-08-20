@@ -334,7 +334,7 @@ app.get("/", (req, res) => {
 
 ```
 $ git add .
-$ git commit -m "application v3, rollbatch"
+$ git commit -m "application v3.0, rollbatch"
 $ git push
 $ eb deploy
 ```
@@ -346,7 +346,7 @@ $ eb deploy
 1.  A batch of 2 instances were launched concurrently
 2.  The new application was deployed to both instances concurrently
 
-We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
+We're done! continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
 ```
 
