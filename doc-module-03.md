@@ -235,3 +235,17 @@ $ git push
 
 $ eb create docker-node-env1 --elb-type application
 ```
+
+#### 2.3 View deployed application
+
+1.  Navigate to the EB service, and select your newly created environment **docker-node-env1**
+
+![newly created environment](./imgs/02/01.png)
+
+2.  Access your application via the URL shown
+
+![environment URL](./imgs/02/02.png)
+
+You'll be greeted with the hello world message
+
+![node hello world](./imgs/03/01.png)
