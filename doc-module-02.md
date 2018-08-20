@@ -197,7 +197,13 @@ Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.h
 
 #### 5.1 Configuring Auto Scaling groups
 
-1.  Similar to before, create our configuration file **asg.config** in the ebextensions folder and edit it with the IDE
+1.  Create a new folder **.ebextensions**. ebextensions are used to customise our Elastic Beanstalk environments.
+
+```
+$ mkdir ~/environment/beanstalk-workshop/.ebextensions
+```
+
+2.  Create our configuration file **asg.config** in the ebextensions folder and edit it with the IDE
 
 ```
 $ touch ~/environment/beanstalk-workshop/.ebextensions/asg.config
@@ -216,25 +222,17 @@ option_settings:
 
 This updates the application to maintain at least 2 EC2 instances across
 
-AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments.
-
-Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html
-
-During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version.
-
 #### 5.2 Changing Deployment Policy
 
 By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
 
-Let's change the deployment policy from rolling to Immutable. Immutable deployments provision a full set of new EC2 instances in a separate Auto Scaling group alongside existing instances.
+With rolling deployments, Elastic Beanstalk splits the environment's EC2 instances into batches and deploys the new version of the application to one batch at a time, leaving the rest of the instances in the environment running the old version of the application. During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version.
 
-1.  Create a new folder **.ebextensions**. ebextensions are used to customise our Elastic Beanstalk environments.
+If you need to maintain full capacity during deployments, you can configure your environment to launch a new batch of instances prior to taking any instances out of service. This option is called a rolling deployment with an additional batch. When the deployment completes, Elastic Beanstalk terminates the additional batch of instances.
 
-```
-$ mkdir ~/environment/beanstalk-workshop/.ebextensions
-```
+Let's change the deployment policy Rolling deployment with an **additional batch**.
 
-2.  Create our configuration file **ImmutDeploy.config** in the ebextensions folder, and edit it with the IDE
+1.  Similar to before, create our configuration file **ImmutDeploy.config** in the ebextensions folder, and edit it with the IDE
 
 ```
 $ touch ~/environment/beanstalk-workshop/.ebextensions/ImmutDeploy.config2
@@ -256,7 +254,13 @@ option_settings:
     Timeout: PT45M
 ```
 
-3.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+2.  Deploy changes
+
+```
+$ eb deploy
+```
+
+2.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
 
 ```
 app.get("/", (req, res) => {

@@ -2,54 +2,72 @@
 
 - Use a Lab-01 source and images to complete this lab.
 
-### 1. Configure CodeCommit and Push your codes
+### 1. Containerising our Node Application
 
-#### 1.1. Create a CodeCommit repository
+#### 1.1. Create a Dockerfile
 
-Refer :
-https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up.html#setting-up-standard
-
-1.  create a repository in CodeCommit
+1.  Create a **Dockerfile**, and edit it in the IDE
 
 ```
- aws codecommit create-repository --repository-name <your repo name> --region <YOUR REGION>
+$ touch ~/environment/beanstalk-workshop/Dockerfile
+```
+
+Add the following configuration to the Dockerfile
+
+````
+FROM node:alpine
+
+# Create app directory
+WORKDIR /usr/src/app
+
+# Install app dependencies
+COPY package*.json .
+
+RUN npm install
+
+# Bundle app source
+COPY . .
+
+EXPOSE 8080
+
+CMD [ "npm", "start" ]
 ```
 
 2.  Clone your git repo
+````
 
-```
 git clone <your repo URL>
-```
 
+```
 ![project template](./imgs/03/00.png)
 
 3.  Push your first code
-
 ```
+
 cd <your repo directory>
 vi Readme.md
 
 git add .
 git commit -m "first"
 git push
-```
 
+```
 #### 1.2. Commit a source to new CodeCommit repository
 
 1.  Copy your sorce codes into your project derectory you careated above step
-
-```
-cp -R ~/environment/aws-container-workshop/lab-01/* ~/environment/<your-repo>
 ```
 
+cp -R ~/environment/aws-container-workshop/lab-01/\* ~/environment/<your-repo>
+
+```
 2.  Commit source code
-
 ```
+
 git add .
 git commit -m "first"
 git push
-```
 
+```
 #### 1.3 Create CodeBuild Service Role for docker images
 
 1.  Give a full CloudWatch Write privilege
@@ -59,29 +77,29 @@ git push
 
 Create a policy "CodeBuild-Build-Policy"
 Create a Role for CodeBuil and attach above policy
-
 ```
+
 {
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "ecs:*",
-        "ecr:*",
-        "s3:*",
-        "codecommit:*",
-        "autoscaling:Describe*",
-        "cloudwatch:*",
-        "logs:*",
-        "sns:*"
-      ],
-      "Resource": "*"
-    }
-  ]
+"Version": "2012-10-17",
+"Statement": [
+{
+"Effect": "Allow",
+"Action": [
+"ecs:*",
+"ecr:*",
+"s3:*",
+"codecommit:*",
+"autoscaling:Describe*",
+"cloudwatch:*",
+"logs:*",
+"sns:*"
+],
+"Resource": "\*"
 }
-```
+]
+}
 
+```
 ### 2. Create a builder project for a docker image
 
 refer : https://docs.aws.amazon.com/codebuild/latest/userguide/sample-docker.html
@@ -94,58 +112,58 @@ refer : https://docs.aws.amazon.com/codebuild/latest/userguide/sample-docker.htm
 
 1.  Change the values accoriding to your environments
 2.  CodeCommit URL, region-ID, account-ID,Amazon-ECR-repo-name and role-name ARN
-
 ```
+
 {
-  "name": "sample-docker-project",
-  "source": {
-    "type": "CODECOMMIT",
-    "location": "<YOUR code commit URL>"
-  },
-  "artifacts": {
-    "type": "NO_ARTIFACTS"
-  },
-  "environment": {
-    "type": "LINUX_CONTAINER",
-    "image": "aws/codebuild/docker:17.09.0",
-    "computeType": "BUILD_GENERAL1_SMALL",
-    "environmentVariables": [
-      {
-        "name": "AWS_DEFAULT_REGION",
-        "value": "region-ID"
-      },
-      {
-        "name": "AWS_ACCOUNT_ID",
-        "value": "account-ID"
-      },
-      {
-        "name": "IMAGE_REPO_NAME",
-        "value": "Amazon-ECR-repo-name"
-      },
-      {
-        "name": "IMAGE_TAG",
-        "value": "latest"
-      }
-    ]
-  },
-  "serviceRole": "arn:aws:iam::account-ID:role/role-name"
+"name": "sample-docker-project",
+"source": {
+"type": "CODECOMMIT",
+"location": "<YOUR code commit URL>"
+},
+"artifacts": {
+"type": "NO_ARTIFACTS"
+},
+"environment": {
+"type": "LINUX_CONTAINER",
+"image": "aws/codebuild/docker:17.09.0",
+"computeType": "BUILD_GENERAL1_SMALL",
+"environmentVariables": [
+{
+"name": "AWS_DEFAULT_REGION",
+"value": "region-ID"
+},
+{
+"name": "AWS_ACCOUNT_ID",
+"value": "account-ID"
+},
+{
+"name": "IMAGE_REPO_NAME",
+"value": "Amazon-ECR-repo-name"
+},
+{
+"name": "IMAGE_TAG",
+"value": "latest"
 }
-```
+]
+},
+"serviceRole": "arn:aws:iam::account-ID:role/role-name"
+}
 
+```
 #### 2.2. Create a builder project
 
 1.  Create a Java builder
-
 ```
+
 aws codebuild create-project --cli-input-json file://create-java-builder.json
-```
 
+```
 2.  Create a docker builder
-
 ```
+
 aws codebuild create-project --cli-input-json file://create-dock-builder.json
-```
 
+```
 #### 2.3 Change buildspec.yml
 
 #### 2.4. Start Build
@@ -170,14 +188,14 @@ If there is a failure, check your build result and if your role dosn't have enou
 #### 2.6. Check pushed image in your local machine
 
 1.  You can describle the iamges withing a repository with following command.
-
 ```
+
 aws ecr describe-images --repository-name java-workshop
-```
 
+```
 2.  Pull the image using the docker pull
-
 ```
+
 docker pull <aws_account_id>.dkr.ecr.<your_region>.amazonaws.com/java-workshop:latest
 
 docker pull 550622896891.dkr.ecr.ap-southeast-1.amazonaws.com/java-workshop:latest
@@ -189,8 +207,8 @@ docker run -d -p 80:8080 --name=hello-world <IMAGE_ID>
 docker run -d -p 80:8080 --name=hello-world 6f9c0d0b1c56
 
 docker ps
-```
 
+```
 ### 3 Create a CICD for docker (new cluster)
 
 https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cd-pipeline.html
@@ -198,16 +216,16 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cd-pipeline.html
 #### 3.1 Add imagedefinition.json in your root directory of source codes
 
 - name is the container name you defined in task definition
-
 ```
+
 [
-    {
-        "name": "java-container",
-        "imageUri": "550622896891.dkr.ecr.ap-southeast-1.amazonaws.com/java-workshop"
-    }
+{
+"name": "java-container",
+"imageUri": "550622896891.dkr.ecr.ap-southeast-1.amazonaws.com/java-workshop"
+}
 ]
-```
 
+```
 ### 4. Complete a CI/CD
 
 #### 4.1 Add deploy stage
@@ -253,14 +271,16 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cd-pipeline.html
 2.  Increment the ListenerRule priority number (no two services can have the same priority number - this is used to order the ALB path based routing rules).
 
 3.  Change TaskDefinition field to create a task definition
-
 ```
+
             LoadBalancers:
                 - ContainerName: "user-service"
                   ContainerPort: 8080
+
 ```
 
 ```
+
     TaskDefinition:
         Type: AWS::ECS::TaskDefinition
         Properties:
@@ -272,25 +292,29 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cd-pipeline.html
                   Memory: 1024
                   PortMappings:
                     - ContainerPort: 8080
+
 ```
 
 ```
+
             HealthCheckPath: /workshop/users/all
+
 ```
 
 ```
+
     ListenerRule:
         Type: AWS::ElasticLoadBalancingV2::ListenerRule
         Properties:
             ListenerArn: !Ref Listener
             Priority: 3
-```
 
+```
 ### 2. Update master.yml
 
 1.  Add a new service
-
 ```
+
     UserService:
         Type: AWS::CloudFormation::Stack
         Properties:
@@ -301,12 +325,17 @@ https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-cd-pipeline.html
                 DesiredCount: 2
                 Listener: !GetAtt ALB.Outputs.Listener
                 Path: /workshop/users*
+
 ```
 
 ```
+
 Outputs:
 
     ServiceServiceUrl:
         Description: The URL endpoint for the product service
         Value: !Join [ "/", [ !GetAtt ALB.Outputs.LoadBalancerUrl, "workshop/users/all" ]]
+
+```
+
 ```
