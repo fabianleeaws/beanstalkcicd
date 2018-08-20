@@ -246,6 +246,6 @@ $ eb create docker-node-env1 --elb-type application
 
 ![environment URL](./imgs/02/02.png)
 
-You'll be greeted with the hello world message
+You'll be greeted with the Docker node message
 
 ![node hello world](./imgs/03/01.png)
