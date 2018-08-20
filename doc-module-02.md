@@ -302,7 +302,7 @@ aws:elasticbeanstalk:command:
 
 ![Fixed: 2](./imgs/02/06.png)
 
-6.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+6.  Now let's updated our application and redeploy it to observe the new deployment policy. Edit **index.js** file and change our API response string from
 
 ```
 app.get("/", (req, res) => {
@@ -314,7 +314,7 @@ to
 
 ```
 app.get("/", (req, res) => {
-  res.send("Immutable deployments are awesome. Server is up on: " + process.env.PORT);
+  res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
 });
 ```
 
