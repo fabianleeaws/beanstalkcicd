@@ -51,3 +51,44 @@ npm-debug.log
 ```
 
 The docker ignore file specifies files & folders to ignore when executing the **COPY** command in the Dockerfile above
+
+#### 2. Edit Application to use Port 8080
+
+1.  Edit **index.js** file
+
+from
+
+```
+const express = require("express");
+const app = express();
+
+app.get("/", (req, res) => {
+  res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
+});
+app.listen(process.env.PORT, () => {
+  console.log("Server is up on: " + process.env.PORT);
+});
+```
+
+to
+
+```
+const express = require("express");
+const app = express();
+const appPort = 8080;
+
+app.get("/", (req, res) => {
+  res.send("Full capacity during deployments!. Server is up on: " + appPort);
+});
+app.listen(appPort, () => {
+  console.log("Server is up on: " + appPort);
+});
+```
+
+#### 3. Build and Run the Container Locally
+
+1.  Use the **docker build** command to build our image based on our **Dockerfile** above
+
+```
+$ docker build -t workshop/node:1.0 .
+```
