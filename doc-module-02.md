@@ -129,9 +129,9 @@ Do you want to set up SSH for your instances?
 (Y/n): n
 ```
 
-### 3. Deploy application with EB CLI
+### 2. Deploy application with EB CLI
 
-#### 3.1 Create EB environment
+#### 2.1 Create EB environment
 
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
@@ -139,7 +139,7 @@ Do you want to set up SSH for your instances?
 $ eb create sample-node-env1 --elb-type application
 ```
 
-#### 3.2 View deployed application
+#### 2.2 View deployed application
 
 1.  Navigate to the EB service, and select your newly created environment **sample-node-env1**
 
@@ -153,7 +153,7 @@ You'll be greeted with the hello world message
 
 ![node hello world](./imgs/02/03.png)
 
-### 4. Updating an application with EB CLI
+### 3. Updating an application with EB CLI
 
 1.  Edit **index.js** file and change our API response string from
 
@@ -189,13 +189,13 @@ $ eb deploy
 
 ![node server process port](./imgs/02/04.png)
 
-### 5. Configuring Elastic Beanstalk Environments with ebextensions
+### 4. Configuring Elastic Beanstalk Environments with ebextensions
 
 You can add AWS Elastic Beanstalk configuration files (.ebextensions) to your web application's source code to configure your environment and customize the AWS resources that it contains.
 
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
 
-#### 5.1 Configuring Auto Scaling groups
+#### 4.1 Configuring Auto Scaling groups
 
 1.  Create a new folder **.ebextensions**. ebextensions are used to customise our Elastic Beanstalk environments.
 
@@ -231,7 +231,7 @@ $ eb deploy
 
 This updates the application to maintain at least 2 EC2 instances across 2 Availability Zones.
 
-#### 5.2 Changing Deployment Policy
+#### 4.2 Changing Deployment Policy
 
 By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
 
