@@ -15,7 +15,7 @@ $ touch ~/environment/beanstalk-workshop/Dockerfile
 Add the following configuration to the Dockerfile
 
 ```
-FROM node:alpine
+FROM node:6
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -28,7 +28,7 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-EXPOSE 8081
+EXPOSE 8080
 
 CMD [ "npm", "start" ]
 ```
