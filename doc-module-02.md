@@ -232,10 +232,10 @@ If you need to maintain full capacity during deployments, you can configure your
 
 Let's change the deployment policy Rolling deployment with an **additional batch**.
 
-1.  Similar to before, create our configuration file **ImmutDeploy.config** in the ebextensions folder, and edit it with the IDE
+1.  Similar to before, create our configuration file **RollBatch.config** in the ebextensions folder, and edit it with the IDE
 
 ```
-$ touch ~/environment/beanstalk-workshop/.ebextensions/ImmutDeploy.config2
+$ touch ~/environment/beanstalk-workshop/.ebextensions/RollBatch.config
 ```
 
 Add the following configuration to the newly created file
@@ -262,7 +262,7 @@ $ eb deploy
 
 3.  In the AWS console, navigate to Elastic Beanstalk -> sample-node-env1 -> Configuration -> Rolling updates and deployments.
 
-![Application deployments](./imgs/02/05.png)
+![Percentage: 30](./imgs/02/05.png)
 
 Note that batch size is set at **30%** rather than the fixed batch size of **2**. This is due to EB CLI defaulting to recommended values.
 
@@ -298,7 +298,11 @@ aws:elasticbeanstalk:command:
   Timeout: '600'
 ```
 
-5.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+5.  Validate the configuration shown in the console is now taken from the ebextension file **RollBatch.config** deployed earlier:
+
+![Fixed: 2](./imgs/02/06.png)
+
+6.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
 
 ```
 app.get("/", (req, res) => {
