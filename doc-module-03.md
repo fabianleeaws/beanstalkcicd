@@ -92,3 +92,14 @@ app.listen(appPort, () => {
 ```
 $ docker build -t workshop/node:1.0 .
 ```
+
+2.  Use the **docker run** command to run the built image as a container
+
+```
+$ docker run -p 8080:8080 workshop/node:1.0
+
+> beanstalk-workshop@1.0.0 start /usr/src/app
+> node index.js
+
+Server is up on: 8080
+```
