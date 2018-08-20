@@ -220,7 +220,16 @@ option_settings:
     MinSize: '2'
 ```
 
-This updates the application to maintain at least 2 EC2 instances across
+3.  Redeploy our application:
+
+```
+$ git add .
+$ git commit -m "ebextension asg"
+$ git push
+$ eb deploy
+```
+
+This updates the application to maintain at least 2 EC2 instances across 2 Availability Zones.
 
 #### 5.2 Changing Deployment Policy
 
@@ -254,9 +263,12 @@ option_settings:
     Timeout: PT45M
 ```
 
-2.  Deploy changes
+2.  Redeploy our application:
 
 ```
+$ git add .
+$ git commit -m "ebextension rollbatch"
+$ git push
 $ eb deploy
 ```
 
@@ -316,6 +328,15 @@ to
 app.get("/", (req, res) => {
   res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
 });
+```
+
+7.  Redeploy our application:
+
+```
+$ git add .
+$ git commit -m "application v3, rollbatch"
+$ git push
+$ eb deploy
 ```
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
