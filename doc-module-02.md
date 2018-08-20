@@ -191,13 +191,38 @@ $ eb deploy
 
 ### 5. Configuring Elastic Beanstalk Environments with ebextensions
 
+You can add AWS Elastic Beanstalk configuration files (.ebextensions) to your web application's source code to configure your environment and customize the AWS resources that it contains.
+
+Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.html
+
+#### 5.1 Configuring Auto Scaling groups
+
+1.  Similar to before, create our configuration file **asg.config** in the ebextensions folder and edit it with the IDE
+
+```
+$ touch ~/environment/beanstalk-workshop/.ebextensions/asg.config
+```
+
+Add the following configuration:
+
+```
+option_settings:
+  aws:autoscaling:asg:
+    Availability Zones: Any
+    Cooldown: '720'
+    MaxSize: '4'
+    MinSize: '2'
+```
+
+This updates the application to maintain at least 2 EC2 instances across
+
 AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments.
 
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features.rolling-version-deploy.html
 
 During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version.
 
-#### 5.1 Changing Deployment Policy
+#### 5.2 Changing Deployment Policy
 
 By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
 
@@ -219,10 +244,16 @@ Add the following configuration to the newly created file
 
 ```
 option_settings:
-  aws:autoscaling:updatepolicy:rollingupdate:
-    RollingUpdateType: Immutable
   aws:elasticbeanstalk:command:
-    DeploymentPolicy: Immutable
+    DeploymentPolicy: RollingWithAdditionalBatch
+    BatchSizeType: Fixed
+    BatchSize: 2
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateEnabled: true
+    MaxBatchSize: 2
+    MinInstancesInService: 2
+    RollingUpdateType: Health
+    Timeout: PT45M
 ```
 
 3.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
@@ -239,25 +270,6 @@ to
 app.get("/", (req, res) => {
   res.send("Immutable deployments are awesome. Server is up on: " + process.env.PORT);
 });
-```
-
-#### 5.2 Configuring Auto Scaling groups
-
-1.  Similar to before, create our configuration file **ImmutDeploy.config** in the ebextensions folder and edit it with the IDE
-
-```
-$ touch ~/environment/beanstalk-workshop/.ebextensions/asg.config
-```
-
-Add the following configuration:
-
-```
-option_settings:
-  aws:autoscaling:asg:
-    Availability Zones: Any
-    Cooldown: '720'
-    MaxSize: '4'
-    MinSize: '2'
 ```
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
