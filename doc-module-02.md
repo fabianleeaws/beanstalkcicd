@@ -189,7 +189,7 @@ $ eb deploy
 
 ![node server process port](./imgs/02/04.png)
 
-### 4. Elastic Beanstalk Deployment Policies
+### 5. Configuring Elastic Beanstalk Environments with ebextensions
 
 AWS Elastic Beanstalk provides several options for how deployments are processed, including deployment policies (All at once, Rolling, Rolling with additional batch, and Immutable) and options that let you configure batch size and health check behavior during deployments.
 
@@ -197,7 +197,7 @@ Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/using-features
 
 During a rolling deployment, some instances serve requests with the old version of the application, while instances in completed batches serve other requests with the new version.
 
-#### 4.1 Changing Deployment Policy
+#### 5.1 Changing Deployment Policy
 
 By default, your environment uses rolling deployments if you created it with the console or EB CLI, or all-at-once deployments if you created it with a different client (API, SDK, or AWS CLI).
 
@@ -209,7 +209,7 @@ Let's change the deployment policy from rolling to Immutable. Immutable deployme
 $ mkdir ~/environment/beanstalk-workshop/.ebextensions
 ```
 
-2.  Create our configuration file **ImmutDeploy.config** in the ebextensions folder
+2.  Create our configuration file **ImmutDeploy.config** in the ebextensions folder, and edit it with the IDE
 
 ```
 $ touch ~/environment/beanstalk-workshop/.ebextensions/ImmutDeploy.config2
@@ -225,38 +225,7 @@ option_settings:
     DeploymentPolicy: Immutable
 ```
 
-3.  The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options. You must remove these settings if you want to use configuration files to configure the same. See Recommended Values for details. Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
-
-We will now remove the recommended values with EB CLI (https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/environment-configuration-methods-after.html#configuration-options-remove-ebcli)
-
-**eb config** will open the local configuration file with nano text editor
-
-```
-$ eb config
-```
-
-Search using nano with **ctrl-W**, and enter "aws:elasticbeanstalk:command:"
-
-```
-aws:elasticbeanstalk:command:
-  BatchSize: '30'
-  BatchSizeType: Percentage
-  DeploymentPolicy: Immutable
-  IgnoreHealthCheck: 'true'
-  Timeout: '900'
-```
-
-Notice **BatchSize** is at 30% rather than the 100% in set our **ImmutDeploy.config** configuration file. Delete the entire line containing **BatchSize** so it looks like this:
-
-```
-aws:elasticbeanstalk:command:
-  BatchSizeType: Percentage
-  DeploymentPolicy: Immutable
-  IgnoreHealthCheck: 'true'
-  Timeout: '900'
-```
-
-4.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+3.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
 
 ```
 app.get("/", (req, res) => {
@@ -270,6 +239,25 @@ to
 app.get("/", (req, res) => {
   res.send("Immutable deployments are awesome. Server is up on: " + process.env.PORT);
 });
+```
+
+#### 5.2 Configuring Auto Scaling groups
+
+1.  Similar to before, create our configuration file **ImmutDeploy.config** in the ebextensions folder and edit it with the IDE
+
+```
+$ touch ~/environment/beanstalk-workshop/.ebextensions/asg.config
+```
+
+Add the following configuration:
+
+```
+option_settings:
+  aws:autoscaling:asg:
+    Availability Zones: Any
+    Cooldown: '720'
+    MaxSize: '4'
+    MinSize: '2'
 ```
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
