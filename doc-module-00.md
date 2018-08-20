@@ -36,7 +36,7 @@ $ sudo yum -y update
 2.  Run this command to install the latest version of Node.js.
 
 ```
-$ nvm install 10.9.0
+$ nvm install 6.14.3
 ```
 
 reference : "Node.js Sample for AWS Cloud9" https://docs.aws.amazon.com/cloud9/latest/user-guide/sample-nodejs.html
@@ -64,10 +64,10 @@ $ git config --global credential.UseHttpPath true
 
 ```
 $ node -v
-v10.9.0
+v6.14.3
 
 $ which node
-~/.nvm/versions/node/v10.7.0/bin/node
+~/.nvm/versions/node/v6.14.3/bin/node
 ```
 
 2.  Run this command to initialise Node project, accept all defaults by hitting **enter** 10 times
