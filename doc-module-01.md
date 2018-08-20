@@ -45,10 +45,10 @@ $ sudo rm -r beanstalkcicd
 
 #### 1.3 Configure Node start script
 
-1.  Edit the packages.json file
+1.  Edit the package.json file
 
 ```
-$ vi packages.json
+$ vi package.json
 ```
 
 2.  Add a start command, changing the scripts block from
