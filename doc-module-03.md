@@ -52,7 +52,7 @@ npm-debug.log
 
 The docker ignore file specifies files & folders to ignore when executing the **COPY** command in the Dockerfile above
 
-#### 2. Edit Application to use Port 8080
+#### 1.2 Edit Application to use Port 8080
 
 1.  Edit **index.js** file
 
@@ -85,7 +85,7 @@ app.listen(appPort, () => {
 });
 ```
 
-#### 3. Build and Run the Container Locally
+#### 1.3 Build and Run the Container Locally
 
 1.  Use the **docker build** command to build our image based on our **Dockerfile** above
 
@@ -114,4 +114,97 @@ Server is up on: 8080
 $ curl localhost:8080
 
 Docker node is up on: 8080
+```
+
+### 2. Deploy Docker Containers on Elastic Beanstalk
+
+#### 2.1 Reinitialise Elastic Beanstalk Application to use Docker platform
+
+1.  Remove local Elastic Beanstalk configuration
+
+```
+$ rm -rf .elasticbeanstalk
+```
+
+2.  Reinitialise Elastic Beanstalk
+
+```
+$ eb init
+```
+
+3.  Enter **7** to select Singapore region
+
+```
+Select a default region
+1) us-east-1 : US East (N. Virginia)
+2) us-west-1 : US West (N. California)
+3) us-west-2 : US West (Oregon)
+4) eu-west-1 : EU (Ireland)
+5) eu-central-1 : EU (Frankfurt)
+6) ap-south-1 : Asia Pacific (Mumbai)
+7) ap-southeast-1 : Asia Pacific (Singapore)
+8) ap-southeast-2 : Asia Pacific (Sydney)
+9) ap-northeast-1 : Asia Pacific (Tokyo)
+10) ap-northeast-2 : Asia Pacific (Seoul)
+11) sa-east-1 : South America (Sao Paulo)
+12) cn-north-1 : China (Beijing)
+13) cn-northwest-1 : China (Ningxia)
+14) us-east-2 : US East (Ohio)
+15) ca-central-1 : Canada (Central)
+16) eu-west-2 : EU (London)
+17) eu-west-3 : EU (Paris)
+(default is 3): 7
+```
+
+4.  Enter **beanstalk-workshop** as application name
+
+```
+Enter Application Name
+(default is "beanstalk-workshop"): beanstalk-workshop
+```
+
+5.  Enter **Y** to select Node.js platform
+
+```
+It appears you are using Node.js. Is this correct?
+(Y/n): Y
+```
+
+6.  Enter **y** to continue with CodeCommit with Elastic Beanstalk
+
+```
+WARNING: Git is in a detached head state. Using branch "default".
+Note: Elastic Beanstalk now supports AWS CodeCommit; a fully-managed source control service. To learn more, see Docs: https://aws.amazon.com/codecommit/
+Do you wish to continue with CodeCommit? (y/N) (default is n): y
+```
+
+7.  Enter **1** to create a new CodeCommit repository
+
+```
+Select a repository
+1) [ Create new Repository ]
+(default is 1): 1
+```
+
+Enter a name for your repository, I've chosen **"beanstalk-workshop"** in the following example
+
+```
+Enter Repository Name
+(default is "origin"):  beanstalk-workshop
+```
+
+Enter a name for your branch, I've chosen **"master"** in the following example
+
+```
+Enter Branch Name
+***** Must have at least one commit to create a new branch with CodeCommit *****
+(default is "master"): master
+```
+
+8.  Enter **n** when prompted to setup SSH access
+
+```
+Cannot setup CodeCommit because there is no Source Control setup, continuing with initialization
+Do you want to set up SSH for your instances?
+(Y/n): n
 ```
