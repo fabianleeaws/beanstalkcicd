@@ -223,8 +223,6 @@ option_settings:
     RollingUpdateType: Immutable
   aws:elasticbeanstalk:command:
     DeploymentPolicy: Immutable
-    BatchSize: '100'
-    BatchSizeType: Percentage
 ```
 
 3.  The EB CLI and Elastic Beanstalk console apply recommended values for the preceding options. You must remove these settings if you want to use configuration files to configure the same. See Recommended Values for details. Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
@@ -256,6 +254,22 @@ aws:elasticbeanstalk:command:
   DeploymentPolicy: Immutable
   IgnoreHealthCheck: 'true'
   Timeout: '900'
+```
+
+4.  Now let's updated our application and redeploy it. Edit **index.js** file and change our API response string from
+
+```
+app.get("/", (req, res) => {
+  res.send("Server is up on: " + process.env.PORT);
+});
+```
+
+to
+
+```
+app.get("/", (req, res) => {
+  res.send("Immutable deployments are awesome. Server is up on: " + process.env.PORT);
+});
 ```
 
 We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
