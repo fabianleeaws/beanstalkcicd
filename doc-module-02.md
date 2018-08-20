@@ -159,7 +159,7 @@ You'll be greeted with the hello world message
 
 ```
 app.get("/", (req, res) => {
-  res.send("Hello world from a Node.js app2!");
+  res.send("Hello world from a Node.js app!");
 });
 ```
 
