@@ -226,11 +226,12 @@ Do you want to set up SSH for your instances?
 
 #### 2.2 Deploy Containerised Application
 
-1.  Redeploy our application:
+1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
 ```
 $ git add .
 $ git commit -m "Docker Node"
 $ git push
-$ eb deploy
+
+$ eb create docker-node-env1 --elb-type application
 ```
