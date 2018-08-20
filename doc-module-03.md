@@ -240,12 +240,12 @@ $ eb create docker-node-env1 --elb-type application
 
 1.  Navigate to the EB service, and select your newly created environment **docker-node-env1**
 
-![newly created environment](./imgs/02/01.png)
+![newly created environment](./imgs/03/01.png)
 
 2.  Access your application via the URL shown
 
-![environment URL](./imgs/03/01.png)
+![environment URL](./imgs/03/02.png)
 
 You'll be greeted with the Docker node message
 
-![node hello world](./imgs/03/02.png)
+![node hello world](./imgs/03/03.png)
