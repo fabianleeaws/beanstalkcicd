@@ -238,7 +238,7 @@ $ eb create docker-node-env1 --elb-type application
 
 #### 2.3 View deployed application
 
-1.  Navigate to the EB service, and select your newly created environment **docker-node-env1**
+1.  Navigate to the EB service, and select your newly created environment **docker-node-env1** s
 
 ![newly created environment](./imgs/03/01.png)
 
