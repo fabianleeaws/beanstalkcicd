@@ -84,7 +84,7 @@ Server is up on: 8080
 
 2.  Open a new terminal
 
-(./imgs/01/01.png)
+![New Terminal](./imgs/01/01.png)
 
 3.  Run the curl command to test API
 
