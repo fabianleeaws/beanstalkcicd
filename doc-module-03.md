@@ -103,3 +103,15 @@ $ docker run -p 8080:8080 workshop/node:1.0
 
 Server is up on: 8080
 ```
+
+3.  Open a new terminal
+
+![New Terminal](./imgs/01/01.png)
+
+4.  Run the curl command to test API
+
+```
+$ curl localhost:8080
+
+Docker node is up on: 8080
+```
