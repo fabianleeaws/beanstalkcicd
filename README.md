@@ -22,7 +22,7 @@
 
 <hr>
 
-## [Lab 3 : CI/CD for ECS](./doc-module-03.md)
+## [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 
 <hr>
 

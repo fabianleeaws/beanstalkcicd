@@ -189,6 +189,4 @@ $ eb deploy
 
 ![node server process port](./imgs/02/04.png)
 
-```
-
-```
+We're done, continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
