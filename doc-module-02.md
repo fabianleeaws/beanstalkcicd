@@ -135,9 +135,16 @@ Do you want to set up SSH for your instances?
 
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
+If you have a default VPC in your account, eb cli will deploy to it by default with the following command:
+
 ```
-#Example
-$ eb create sample-node-env1 --vpc.id vpc-0f671cf4cdf8efe8d --vpc.elbsubnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --vpc.elbpublic --vpc.ec2subnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --elb-type application --vpc.publicip
+$ eb create sample-node-env1 --elb-type application
+```
+
+If you want to deploy it to a custom VPC, you'll need to provide extra parameters like the following example:
+
+```
+$ eb create sample-node-env1 --vpc.id vpc-0f671cf4cdf8efe8d --vpc.publicip --vpc.elbsubnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --vpc.elbpublic --vpc.ec2subnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --elb-type application
 ```
 
 #### 2.2 View deployed application
@@ -160,7 +167,7 @@ You'll be greeted with the hello world message
 
 ```
 app.get("/", (req, res) => {
-res.send("Hello world from a Node.js app!");
+  res.send("Hello world from a Node.js app!");
 });
 ```
 
@@ -168,7 +175,7 @@ to
 
 ```
 app.get("/", (req, res) => {
-res.send("Server is up on: " + process.env.PORT);
+  res.send("Server is up on: " + process.env.PORT);
 });
 ```
 
@@ -214,11 +221,11 @@ Add the following configuration:
 
 ```
 option_settings:
-aws:autoscaling:asg:
-Availability Zones: Any
-Cooldown: '720'
-MaxSize: '4'
-MinSize: '2'
+  aws:autoscaling:asg:
+    Availability Zones: Any
+    Cooldown: '720'
+    MaxSize: '4'
+    MinSize: '2'
 ```
 
 3.  Redeploy our application:
@@ -252,16 +259,16 @@ Add the following configuration to the newly created file
 
 ```
 option_settings:
-aws:elasticbeanstalk:command:
-DeploymentPolicy: RollingWithAdditionalBatch
-BatchSizeType: Fixed
-BatchSize: 2
-aws:autoscaling:updatepolicy:rollingupdate:
-RollingUpdateEnabled: true
-MaxBatchSize: 2
-MinInstancesInService: 2
-RollingUpdateType: Health
-Timeout: PT45M
+  aws:elasticbeanstalk:command:
+    DeploymentPolicy: RollingWithAdditionalBatch
+    BatchSizeType: Fixed
+    BatchSize: 2
+  aws:autoscaling:updatepolicy:rollingupdate:
+    RollingUpdateEnabled: true
+    MaxBatchSize: 2
+    MinInstancesInService: 2
+    RollingUpdateType: Health
+    Timeout: PT45M
 ```
 
 2.  Redeploy our application:
@@ -295,20 +302,20 @@ Before:
 
 ```
 aws:elasticbeanstalk:command:
-BatchSize: '30'
-BatchSizeType: Percentage
-DeploymentPolicy: RollingWithAdditionalBatch
-IgnoreHealthCheck: 'false'
-Timeout: '600'
+  BatchSize: '30'
+  BatchSizeType: Percentage
+  DeploymentPolicy: RollingWithAdditionalBatch
+  IgnoreHealthCheck: 'false'
+  Timeout: '600'
 ```
 
 After:
 
 ```
 aws:elasticbeanstalk:command:
-DeploymentPolicy: RollingWithAdditionalBatch
-IgnoreHealthCheck: 'false'
-Timeout: '600'
+  DeploymentPolicy: RollingWithAdditionalBatch
+  IgnoreHealthCheck: 'false'
+  Timeout: '600'
 ```
 
 5.  Validate the configuration shown in the console is now taken from the ebextension file **RollBatch.config** deployed earlier:
@@ -319,7 +326,7 @@ Timeout: '600'
 
 ```
 app.get("/", (req, res) => {
-res.send("Server is up on: " + process.env.PORT);
+  res.send("Server is up on: " + process.env.PORT);
 });
 ```
 
@@ -327,7 +334,7 @@ to
 
 ```
 app.get("/", (req, res) => {
-res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
+  res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
 });
 ```
 
@@ -348,7 +355,3 @@ $ eb deploy
 2.  The new application was deployed to both instances concurrently
 
 We're done! continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
-
-```
-
-```
