@@ -29,6 +29,9 @@
 
 # More Studies
 
+Set up a Continuous Deployment Pipeline using AWS CodePipeline & Elastic Beanstalk
+https://aws.amazon.com/getting-started/tutorials/continuous-deployment-pipeline/
+
 Microservice with Fargate :
 https://github.com/aws-samples/aws-microservices-deploy-options
 
