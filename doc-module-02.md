@@ -136,7 +136,7 @@ Do you want to set up SSH for your instances?
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
 ```
-$ eb create sample-node-env1 --elb-type application --vpc.dbsubnets <subnet1>,<subnet2>
+$ eb create sample-node-env1 --elb-type application -vpc.elbsubnets subnet1,subnet2
 ```
 
 #### 2.2 View deployed application
