@@ -158,34 +158,34 @@ You'll be greeted with the hello world message
 
 1.  Edit **index.js** file and change our API response string from
 
-````
+```
 app.get("/", (req, res) => {
 res.send("Hello world from a Node.js app!");
 });
-
 ```
+
 to
-```
 
+```
 app.get("/", (req, res) => {
 res.send("Server is up on: " + process.env.PORT);
 });
-
 ```
+
 2.  Commit the changes to git. As you've configured CodeCommit as your repository during **eb init**, only committed changes to your repository will be deployed
-```
 
+```
 $ git add .
 $ git commit -m "v2.0"
 $ git push
-
 ```
+
 3.  Deploy your updated application
-```
 
+```
 $ eb deploy
-
 ```
+
 4.  Now refresh your browser to view the updated API response
 
 ![node server process port](./imgs/02/04.png)
@@ -199,37 +199,37 @@ Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/ebextensions.h
 #### 4.1 Configuring Auto Scaling groups
 
 1.  Create a new folder **.ebextensions**. ebextensions are used to customise our Elastic Beanstalk environments.
-```
 
+```
 $ mkdir ~/environment/beanstalk-workshop/.ebextensions
-
 ```
+
 2.  Create our configuration file **asg.config** in the ebextensions folder and edit it with the IDE
-```
 
+```
 $ touch ~/environment/beanstalk-workshop/.ebextensions/asg.config
-
 ```
+
 Add the following configuration:
-```
 
+```
 option_settings:
 aws:autoscaling:asg:
 Availability Zones: Any
 Cooldown: '720'
 MaxSize: '4'
 MinSize: '2'
-
 ```
+
 3.  Redeploy our application:
-```
 
+```
 $ git add .
 $ git commit -m "ebextension asg"
 $ git push
 $ eb deploy
-
 ```
+
 This updates the application to maintain at least 2 EC2 instances across 2 Availability Zones.
 
 #### 4.2 Changing Deployment Policy
@@ -243,14 +243,14 @@ If you need to maintain full capacity during deployments, you can configure your
 Let's change the deployment policy Rolling deployment with an **additional batch**.
 
 1.  Similar to before, create our configuration file **RollBatch.config** in the ebextensions folder, and edit it with the IDE
-```
 
+```
 $ touch ~/environment/beanstalk-workshop/.ebextensions/RollBatch.config
-
 ```
+
 Add the following configuration to the newly created file
-```
 
+```
 option_settings:
 aws:elasticbeanstalk:command:
 DeploymentPolicy: RollingWithAdditionalBatch
@@ -262,17 +262,17 @@ MaxBatchSize: 2
 MinInstancesInService: 2
 RollingUpdateType: Health
 Timeout: PT45M
-
 ```
+
 2.  Redeploy our application:
-```
 
+```
 $ git add .
 $ git commit -m "ebextension rollbatch"
 $ git push
 $ eb deploy
-
 ```
+
 3.  In the AWS console, navigate to Elastic Beanstalk -> sample-node-env1 -> Configuration -> Rolling updates and deployments.
 
 ![Percentage: 30](./imgs/02/05.png)
@@ -284,62 +284,62 @@ The Elastic Beanstalk Command Line Interface (EB CLI) and Elastic Beanstalk cons
 Reference: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html#configuration-options-recommendedvalues
 
 4.  We will override the recommended value with **eb config** command
-```
 
+```
 $ eb config
-
 ```
+
 Use **ctrl-W** to search for "aws:elasticbeanstalk:command", and remove the "BatchSize" & "BatchSizeType" lines.
 
 Before:
-```
 
+```
 aws:elasticbeanstalk:command:
 BatchSize: '30'
 BatchSizeType: Percentage
 DeploymentPolicy: RollingWithAdditionalBatch
 IgnoreHealthCheck: 'false'
 Timeout: '600'
-
 ```
+
 After:
-```
 
+```
 aws:elasticbeanstalk:command:
 DeploymentPolicy: RollingWithAdditionalBatch
 IgnoreHealthCheck: 'false'
 Timeout: '600'
-
 ```
+
 5.  Validate the configuration shown in the console is now taken from the ebextension file **RollBatch.config** deployed earlier:
 
 ![Fixed: 2](./imgs/02/06.png)
 
 6.  Now let's updated our application and redeploy it to observe the new deployment policy. Edit **index.js** file and change our API response string from
-```
 
+```
 app.get("/", (req, res) => {
 res.send("Server is up on: " + process.env.PORT);
 });
-
 ```
+
 to
-```
 
+```
 app.get("/", (req, res) => {
 res.send("Full capacity during deployments!. Server is up on: " + process.env.PORT);
 });
-
 ```
+
 7.  Redeploy our application:
-```
 
+```
 $ git add .
 $ git commit -m "application v3.0, rollbatch"
 $ git push
 $ eb deploy
-
 ```
+
 8.  Note the output from the **eb deploy** command:
 
 ![Rolling with batch deployment](./imgs/02/07.png)
@@ -348,5 +348,7 @@ $ eb deploy
 2.  The new application was deployed to both instances concurrently
 
 We're done! continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
+
 ```
-````
+
+```
