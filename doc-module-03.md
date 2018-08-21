@@ -234,6 +234,9 @@ $ git commit -m "Docker Node"
 $ git push
 
 $ eb create docker-node-env1 --elb-type application
+
+#Example
+$ eb create sample-node-env1 --vpc.id vpc-0f671cf4cdf8efe8d --vpc.elbsubnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --vpc.elbpublic --vpc.ec2subnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --elb-type application
 ```
 
 #### 2.3 View deployed application
