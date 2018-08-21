@@ -135,7 +135,7 @@ Do you want to set up SSH for your instances?
 
 1.  Run eb create command to create an EB environment. This creates an environment and deploys your application
 
-````
+```
 #Example
 $ eb create sample-node-env1 --vpc.id vpc-0f671cf4cdf8efe8d --vpc.elbsubnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --vpc.elbpublic --vpc.ec2subnets subnet-0ab86bd1f10dd760d,subnet-0ad50e2284d4d2e58 --elb-type application
 ```
@@ -157,8 +157,8 @@ You'll be greeted with the hello world message
 ### 3. Updating an application with EB CLI
 
 1.  Edit **index.js** file and change our API response string from
-````
 
+````
 app.get("/", (req, res) => {
 res.send("Hello world from a Node.js app!");
 });
@@ -349,3 +349,4 @@ $ eb deploy
 
 We're done! continue to [Lab 3 : Create & Deploy Your First Docker Image](./doc-module-03.md)
 ```
+````
